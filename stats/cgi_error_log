@@ -1,0 +1,4 @@
+20141111T213450: lowtheprice.com/jackbox/php/graphics.php
+PHP Warning:  opendir(../img/graphicsmusic): failed to open dir: No such file or directory in /hermes/walnaweb01a/b795/moo.dannycomputer2008com/jackbox/php/graphics.php on line 45
+PHP Warning:  opendir(../img/graphicspsd): failed to open dir: No such file or directory in /hermes/walnaweb01a/b795/moo.dannycomputer2008com/jackbox/php/graphics.php on line 45
+PHP Warning:  opendir(../img/graphicsretina): failed to open dir: No such file or directory in /hermes/walnaweb01a/b795/moo.dannycomputer2008com/jackbox/p

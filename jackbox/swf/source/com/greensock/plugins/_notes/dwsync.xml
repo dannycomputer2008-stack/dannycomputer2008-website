@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="AutoAlphaPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="BevelFilterPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="BezierPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="BezierThroughPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="BlurFilterPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="CacheAsBitmapPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="CirclePath2DPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="ColorMatrixFilterPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="ColorTransformPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="DropShadowFilterPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="EndArrayPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="EndVectorPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="FilterPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="FrameBackwardPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="FrameForwardPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="FrameLabelPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="FramePlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="GlowFilterPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="HexColorsPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="QuaternionsPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="RemoveTintPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="RoundPropsPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="ScalePlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="ScrollRectPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="SetActualSizePlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="SetSizePlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="ShortRotationPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="SoundTransformPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="StageQualityPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="TintPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="TransformMatrixPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="TweenPlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="VisiblePlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+<file name="VolumePlugin.as" server="ftp.fatcow.com" local="130170492000000000" remote="130170492000000000" />
+</dwsync>

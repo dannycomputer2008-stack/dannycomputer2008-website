@@ -1,0 +1,699 @@
+<html>
+<html lang="en">
+<head>
+  <title>Danny Computer 2008</title>
+  <meta charset="utf-8">
+  <link href='images/favicon.ico' rel='shortcut icon'>
+  <link href="jackbox/css/jackbox.css" rel="stylesheet" type="text/css" />
+  <link href="jackbox/css/jackbox_hovers.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery.js"></script>
+  <script type="text/javascript" src="jackbox/js/libs/jquery.address-1.5.min.js"></script>
+  <script type="text/javascript" src="jackbox/js/libs/Jacked.js"></script>
+  <script type="text/javascript" src="jackbox/js/jackbox-swipe.js"></script>
+  <script type="text/javascript" src="jackbox/js/jackbox.js"></script>
+  <script type="text/javascript" src="jackbox/js/libs/StackBlur.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZynayP0FiRP6otrZUhmv6UrM_DLjHkz4&callback=initialize&v=3.exp"></script>
+  <script>
+		var map;
+		var LaPuente = new google.maps.LatLng(34.020011, -117.949508);
+		var MY_MAPTYPE_ID = 'hiphop';
+		function initialize() {
+			var stylez = [
+				{
+					"stylers": [
+						{ "saturation": -97 }
+					]
+				},{
+				}
+			] 
+			var mapOptions = {
+				zoom: 12,
+				center: LaPuente,
+				mapTypeControlOptions: {
+					mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
+				},
+				mapTypeId: MY_MAPTYPE_ID
+			};
+			map = new google.maps.Map(document.getElementById('map_canvas'),
+					mapOptions);
+			var styledMapOptions = {
+				name: 'GrayScale'
+			};
+			var jayzMapType = new google.maps.StyledMapType(stylez, styledMapOptions);
+			map.mapTypes.set(MY_MAPTYPE_ID, jayzMapType);
+		}
+    </script>
+  <!--[if lt IE 9]>
+  	<script type="text/javascript" src="js/html5.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/ie.css">
+  <![endif]-->
+	<!--[if lt IE 8]>
+		<div style=' clear: both; text-align:center; position: relative;'>
+     <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+       <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+    </a>
+  </div>
+	<![endif]-->
+</head>
+<html>
+<html lang="en">
+<head>
+    <meta name="description"
+      content="Professional computer repair services by Danny. Fast, reliable, and affordable computer repairs for home and business in your local area. Contact Danny at DANNYCOMPUTER2008.COM for top-notch service.">
+    <meta name="keywords"
+      content="computer repair, PC repair, laptop repair, IT services, tech support, Danny's Computer Repair">
+</head>
+<body onload="initialize()">
+<div id="main_bg">
+<div class="glow"></div>
+  <div class="spinner"><span></span></div>  
+  <div class="main_container">
+    <div class="container_12">
+        <!--header -->
+            <header>
+              <div class="grid_12">
+                <h1><a class="hide_text" href="#!/splash" id="logo">Danny Computer 2008</a></h1>
+                <div class="menuHolder">
+                   <nav class="menu">
+                      <ul id="menu">
+                          <li><a href="#!/splash"><div class="mText">splash</div></a></li> 
+                          <li class="about_link"><a href="#!/about"><em></em><span>About</span></a></li>
+                          <li class="port_link"><a href="#!/clients"><em></em><span>Clients</span></a></li> 
+                          <li class="service_link"><a href="#!/services"><em></em><span>Services</span></a></li>
+                          <li class="contact_link"><a  href="#!/contacts"><em></em><span>Contact</span></a></li>
+                      </ul>
+                    </nav>
+                </div>
+                <div class="description">
+                  <div class="inner">Hi there! I am a computer technician who provides IT services to small businesses and individuals, currently working in greater Los Angeles. Thanks for visiting my website.</div>
+                </div>
+                <div class="clear"></div>
+              </div>
+              <div class="clear"></div>
+            </header>
+        <!--header end-->    
+            <nav class="splashHolder">
+                 <ul class="splash_menu">
+                    <li class="grid_3">
+                        <a href="#!/about">
+                          <em class="menu_icon"><img src="images/splash_icon1.png" alt=""></em>
+                          <span>About</span>
+                        </a>
+                    </li>
+                    <li class="grid_3">
+                        <a href="#!/clients">
+                          <em class="menu_icon"><img src="images/splash_icon2.png" alt=""></em>
+                          <span>Clients</span>
+                        </a>
+                    </li> 
+                    <li class="grid_3">
+                        <a href="#!/services">
+                          <em class="menu_icon"><img src="images/splash_icon3.png" alt=""></em>
+                          <span>Services</span>
+                        </a>
+                    </li>
+                    <li class="grid_3 last-col">
+                        <a  href="#!/contacts">
+                          <em class="menu_icon"><img src="images/splash_icon4.png" alt=""></em>
+                          <span>Contact</span>
+                        </a>
+                    </li>
+               </ul>
+            </nav>
+          <!--content -->
+            <section id="content">
+              <ul>
+                    <li id="splash"></li>
+                    <li id="about">
+                      <div class="wrapper">
+                        <article class="grid_12">
+                          <div class="box">
+                            <div class="grid_7 alpha">
+                              <div class="pad_box1">
+                                <div class="biography">
+                                  <div class="flexslider">
+                                    <ul class="slides">
+                                      <li><img src="images/slide1.jpg" alt=""></li>
+                                      <li><img src="images/slide2.jpg" alt=""></li>
+                                      <li><img src="images/slide3.jpg" alt=""></li>
+                                    </ul>
+                                  </div>
+                                  <div class="text">
+                                    <ul class="date_list">
+                                    <br />
+                                      <li>
+                                        <strong>Name</strong><br>
+                                        Danny
+                                      </li>
+                                    <br />
+                                      <li>
+                                        <strong>Education</strong><br>
+                                       
+                                        Liaoning university of technology<br>
+                                        China (2007)
+                                      </li>
+                                    <br />
+                                      <li>
+                                        <strong>Specialization</strong><br>
+                                        Computer Engineering<br>
+                                        Web Designe
+                                      </li>
+                                      
+                                    </ul>
+                                  </div>
+                                </div> 
+                              </div>
+                            </div>
+                            <div class="grid_5 omega last-col">
+                              <div class="pad_box2">
+                               <br />
+                               <br />
+                                <h2>My Experience</h2>
+                               <br />
+                                <ul class="experience_list">
+                                  <li>
+                                    <div class="ext_box experience">
+                                      <figure>
+                                        <strong>Computer Engineer</strong></figure>
+                                      <div>Since 2000</div>
+                                    </div>
+Perfect IT support for the small business. Because of my extensive computer maintaining and repairing knowledge, I can provide the best IT solution for any small business. I am an export in setting up maintaining and repairing.
+                                  </li>
+                                  <li>
+                                    <div class="ext_box experience">
+                                      <figure>
+                                        <strong>Web Designer</strong></figure>
+                                      <div>Since 2010</div>
+                                    </div>
+                                   The website I build is low-cost, easy to use,  feature-rich and beautiful.
+                                  </li>
+                                  
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="clear"></div>
+                            
+                          </div>
+                        </article>
+                      </div>
+                    </li>
+                    
+                    <li id="clients">
+                      <div class="wrapper">
+                        <article class="grid_12">
+                          <div class="box">
+                            <div class="pad_box1">
+                              <h2 class="ind">My Clients</h2>
+                                <div class="filter_box">
+                                  <div class="portfolio-filter">
+                                      <ul id="portfolio-filter">
+                                        <li>
+                                            
+                                          </li>
+                                        </ul>
+                                   </div>
+                                   <div class="portfolio-item">
+                                      <ul id="portfolio-list">
+                                        <div class="portfolio-item">
+                                      <ul id="portfolio-list">
+                                        <li class="web">
+                                          <div class="portfolio-box">
+                                            <div class="portoflio-img">
+                                              <a class="jackbox" href="images/portfolio1.jpg" data-group="images" data-title="Moscow Central School of Music">
+                                                <img src="images/portfolio1.png" alt="">
+                                                <span class="description">
+                                                  <span class="inner">
+                                                    Moscow Central School of Music<br>
+                                                    <span>IT Support</span>
+                                                  </span>
+                                                </span>
+                                              </a>
+                                            </div>
+                                          </div>
+                                        </li>
+                                        <li class="web">
+                                          <div class="portfolio-box">
+                                            <div class="portoflio-img">
+                                              <a class="jackbox" href="images/portfolio2.jpg" data-group="images" data-title="Profusion Cosmetics">
+                                                <img src="images/portfolio2.png" alt="">
+                                                <span class="description">
+                                                  <span class="inner">
+                                                    Profusion Cosmetics<br>Company<br>
+                                                    <span>IT Support</span>
+                                                  </span>
+                                                </span>
+                                              </a>
+                                            </div>
+                                          </div>
+                                        </li>
+                                        <li class="web">
+                                          <div class="portfolio-box">
+                                            <div class="portoflio-img">
+                                              <a class="jackbox" href="images/portfolio3.jpg" data-group="images" data-title="Richin Trading">
+                                                <img src="images/portfolio3.png" alt="">
+                                                <span class="description">
+                                                  <span class="inner">
+                                                    Richin Trading<br>Company<br>
+                                                    <span>IT Support</span>
+                                                  </span>
+                                                </span>
+                                              </a>
+                                            </div>
+                                          </div>
+                                        </li>
+                                        <li class="web">
+                                          <div class="portfolio-box">
+                                            <div class="portoflio-img">
+                                              <a class="jackbox" href="images/portfolio4.jpg" data-group="images" data-title="Cabinet Square & Flooring Inc.">
+                                                <img src="images/portfolio4.png" alt="">
+                                                <span class="description">
+                                                  <span class="inner">
+                                                    Cabinet Square & Flooring Inc.<br>
+                                                    <span>IT Support</span>
+                                                  </span>
+                                                </span>
+                                              </a>
+                                            </div>
+                                          </div>
+                                        </li>
+                                        <!--这是一段注释。注释不会在浏览器中显示。
+                                        <li class="web">
+                                          <div class="portfolio-box">
+                                            <div class="portoflio-img">
+                                              <a class="jackbox" href="images/portfolio5.jpg" data-group="images" data-title="America Asian Travel Center">
+                                                <img src="images/portfolio5.png" alt="">
+                                                <span class="description">
+                                                  <span class="inner">
+                                                    America Asian Travel Center<br>
+                                                    <span>IT Support</span>
+                                                  </span>
+                                                </span>
+                                              </a>
+                                            </div>
+                                          </div>
+                                        </li>
+                                        <li class="web">
+                                          <div class="portfolio-box">
+                                            <div class="portoflio-img">
+                                              <a class="jackbox" href="images/portfolio6.jpg" data-group="images" data-title="Apple Event Supplies">
+                                                <img src="images/portfolio6.png" alt="">
+                                                <span class="description">
+                                                  <span class="inner">
+                                                    Apple Event Supplies<br>Company<br>
+                                                    <span>IT Support</span>
+                                                  </span>
+                                                </span>
+                                              </a>
+                                            </div>
+                                          </div>
+                                        </li>
+                                        -->
+                                        <li class="web">
+                                          <div class="portfolio-box">
+                                            <div class="portoflio-img">
+                                              <a class="jackbox" href="images/portfolio7.gif" data-group="images" data-title="Law Office Of Taihe Wang">
+                                                <img src="images/portfolio7.png" alt="">
+                                                <span class="description">
+                                                  <span class="inner">
+                                                    Law Office of<br>Taihe Wang<br>
+                                                    <span>IT Support</span>
+                                                  </span>
+                                                </span>
+                                              </a>
+                                            </div>
+                                          </div>
+                                        </li>
+                                        <li class="web">
+                                          <div class="portfolio-box">
+                                            <div class="portoflio-img">
+                                              <a class="jackbox" href="images/portfolio8.jpg" data-group="images" data-title="Kokaho Aquarium">
+                                                <img src="images/portfolio8.png" alt="">
+                                                <span class="description">
+                                                  <span class="inner">
+                                                    Kokaho Aquarium<br>Company<br>
+                                                    <span>IT Support</span>
+                                                  </span>
+                                                </span>
+                                              </a>
+                                            </div>
+                                          </div>
+                                        </li>
+                                        <li class="web">
+                                          <div class="portfolio-box">
+                                            <div class="portoflio-img">
+                                              <a class="jackbox" href="images/portfolio9.jpg" data-group="images" data-title="Chuan International Co">
+                                                <img src="images/portfolio9.png" alt="">
+                                                <span class="description">
+                                                  <span class="inner">
+                                                    Chuan International Co<br>
+                                                    <span>IT Support</span>
+                                                  </span>
+                                                </span>
+                                              </a>
+                                            </div>
+                                          </div>
+                                        </li>
+                                        <!--
+                                        <li class="web">
+                                          <div class="portfolio-box">
+                                            <div class="portoflio-img">
+                                              <a class="jackbox" href="images/portfolio10.jpg" data-group="images" data-title="SINO Enterprises Inc. restaurant contract funiture specialists">
+                                                <img src="images/portfolio10.png" alt="">
+
+                                                <span class="description">
+                                                  <span class="inner">
+                                                    SINO Enterprises<br>Inc.<br>
+                                                    <span>IT Support</span>
+                                                  </span>
+                                                </span>
+                                              </a>
+                                            </div>
+                                          </div>
+                                        </li>
+                                        -->
+                                        <li class="web">
+                                          <div class="portfolio-box">
+                                            <div class="portoflio-img">
+                                              <a class="jackbox" href="images/portfolio11.jpg" data-group="images" data-title="A/C & refrigeration sales & services">
+                                                <img src="images/portfolio11.png" alt="">
+                                                <span class="description">
+                                                  <span class="inner">
+                                                    Commercial Air Cooler<br>Inc.<br>
+                                                    <span>IT Support</span>
+                                                  </span>
+                                                </span>
+                                              </a>
+                                            </div>
+                                          </div>
+                                        </li>
+                                      </ul>
+                                  </div>      
+                                </div>
+                            <div class="clear"></div>
+                            
+                          </div>
+												</div>
+                        </article>
+                      </div>
+                    </li>
+                    <li id="services">
+                      <div class="wrapper">
+                        <article class="grid_12">
+                          <div class="box">
+                            <article class="grid_4 alpha">
+                              <div class="pad_box1">
+                                <h2 class="ind1">Skills</h2>
+                                <div class="skill_box">
+																	<div class="skill_label">Computer Hardware<span class="skill_num">9/10</span></div>
+																	<div class="skill_level"><div class="skill_set" data-skill="90"></div></div>
+																</div>
+																<div class="skill_box">
+																	<div class="skill_label">Windows System<span class="skill_num">9/10</span></div>
+																	<div class="skill_level"><div class="skill_set" data-skill="90"></div></div>
+																</div>
+																<div class="skill_box">
+																	<div class="skill_label">Windows Software<span class="skill_num">9/10</span></div>
+																	<div class="skill_level"><div class="skill_set" data-skill="90"></div></div>
+																</div>
+																<div class="skill_box">
+																	<div class="skill_label">LAN<span class="skill_num">9/10</span></div>
+																	<div class="skill_level"><div class="skill_set" data-skill="90"></div></div>
+																</div>
+																<div class="skill_box">
+																	<div class="skill_label">HTML<span class="skill_num">8/10</span></div>
+																	<div class="skill_level"><div class="skill_set" data-skill="80"></div></div>
+																</div>
+																<!--
+																<div class="skill_box last">
+																	<div class="skill_label">Photoshop<span class="skill_num">7/10</span></div>
+																	<div class="skill_level"><div class="skill_set" data-skill="70"></div></div>
+																</div>
+																</li>
+                                                             -->    
+                              </div>
+                            </article>
+														<article class="grid_3">
+															<div class="pad_box1">
+                                <h2 class="ind1">Services</h2>
+                                <ul class="service_list">
+                                  <li>
+                                    <h3>Small Business IT</h3>
+                                 &bull; On-site Service <br /> 
+                                 &bull; Build or Repair Computers<br /> 
+                                 &bull; Broadband Internet <br /> 
+                                 &bull; Office LAN Networking <br /> 
+                                 &bull; System backup and restore <br /> 
+                                 &bull; Data backup and recovery
+                                  </li>
+                                  <li class="last">
+                                    <h3>Website Design</h3>
+                                 &bull; Name Card Website <br>
+                                 &bull; Show Room Website <br>
+                                 
+                                  </li>
+                                </ul>
+                                <div class="button_wrap2">
+                                  
+                                </div>
+                              </div>
+														</article>
+                            <article class="grid_5 omega">
+                              <div class="pad_box2">
+                                <h2 class="ind">Price</h2>
+                                <ul class="reference_list">
+                                  <li
+                                    <blockquote>
+                                      "$80/hr. <br />Tell me the problems or what you need me to do, I will tell you how long the work will take and the price, no additional charge beyond the time.
+                                    </blockquote>
+                                    <div class="author">Simple Charge</div>
+                                  </li>
+                                  <li class="last">
+                                    <blockquote>
+                                     "My travel time is considered as work hours. Time is estimated by Google Maps."
+                                    </blockquote>
+                                    <div class="author">I live in La Puente</div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </article>
+                            <div class="clear"></div>
+                            
+                          </div>
+                        </article>
+                      </div>
+                    </li>
+                    <li id="contacts">
+                      <div class="wrapper">
+                        <article class="grid_12">
+                         
+                          <div class="box">
+                  <!--
+                            <div class="grid_4 alpha">
+                              <div class="pad_box1">
+                                <h2 class="ind">Email Me</h2>
+                                <form id="contact-form">
+                                    <div class="success">Contact form submitted!<br>
+                                        <strong>We will be in touch soon.</strong>
+                                    </div>
+                                    <fieldset>
+                                      <label class="name">
+                                        <input type="text" value="Your Name*">
+                                          <span class="error">*This is not a valid name.</span> <span class="empty">*This field is required.</span>
+                                      </label>
+                                      <label class="email">
+                                        <input type="text" value="Your Email*">
+                                          <span class="error">*This is not a valid email address.</span> <span class="empty">*This field is required.</span>
+                                      </label>
+                                      <label class="message notRequired">
+                                        <textarea>Message* This option is under adjusting. Please email me at DannyComputer2008@Gmail.com*</textarea>
+                                          <span class="error">*The message is too short.</span> <span class="empty">*This field is required.</span>
+                                      </label>
+                                      <div class="buttons2">
+                                          <a href="#" data-type="submit" class="button">Send Your Message</a>
+                                      </div>
+                                    </fieldset>
+                                </form>
+                              </div>
+                            </div>
+                  <li>-->
+                  <div class="grid_4 alpha">
+                              <div class="pad_box1" >
+                              <dd>
+                                      <div class="rustdesk-button" style="margin-top: 70px; text-align: center;">
+  <a href="https://github.com/rustdesk/rustdesk/releases/download/1.2.6/rustdesk-1.2.6-x86_64.exe">
+    <img src="images/RustDesk.png" alt="Download Rustdesk" width="245" height="90" border="0" />
+  </a>
+</div>
+                                      </dd>
+                                
+                                
+                                
+                    <!--
+                                <form id="contact-form">
+                                    <div class="success">Contact form submitted!<br>
+                                        <strong>We will be in touch soon.</strong>
+                                    </div>
+                                    <fieldset>
+                                      <label class="name">
+                                        <input type="text" value="Your Name*">
+                                          <span class="error">*This is not a valid name.</span> <span class="empty">*This field is required.</span>
+                                      </label>
+                                      <label class="email">
+                                        <input type="text" value="Your Email*">
+                                          <span class="error">*This is not a valid email address.</span> <span class="empty">*This field is required.</span>
+                                      </label>
+                                      <label class="message notRequired">
+                                        <textarea>Message* This option is under adjusting. Please email me at DannyComputer2008@Gmail.com*</textarea>
+                                          <span class="error">*The message is too short.</span> <span class="empty">*This field is required.</span>
+                                      </label>
+                                      <div class="buttons2">
+                                          <a href="#" data-type="submit" class="button">Send Your Message</a>
+                                      </div>
+                                    </fieldset>
+                                </form>
+                     <li>-->
+                              </div>
+
+
+                              
+                            </div>
+                            <div class="grid_8 omega">
+                              <div class="pad_box2">
+                                <div class="ext_box map_box">
+                                  <figure>
+                                    <div id="map_canvas"></div>
+                                  </figure>
+                                  <div>
+                                  <h2 class="ind" style="margin-top: 50px;">My Location</h2>
+                                <dd><span><img  alt=""></span>La Puente, CA 91744</dd>
+                                    <h2 class="ind" style="margin-top: 50px;">Contact Info</h2>
+                                    
+                                    <p class="p3 gray1"> </p>
+                                    <dl class="address">
+                                      <!--<dt>Danny Computer 2008, INC
+                                      <br />
+                                      P.O.Box 4074<br>  <li>--> 
+
+                                      <dd><span><img src="images/ico1.png" alt=""></span>+1 626 528 2988</dd>
+                                      <dd><span><img src="images/ico2.png" alt=""></span><a href="mailto:dannycomputer2008@gmail.com">DannyComputer2008<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Gmail.com</a></dd>
+                                      <br />
+                                                                            <br />
+                                                                            
+                                     
+                                      
+                                      
+                                    </dl>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                          </div>
+                        </article>
+                      </div>
+                    </li>
+                    
+              </ul>
+            </section>
+            <center>
+            <footer>
+              <div class="splash_footer">
+                &copy;DannyComputer2008.com  All rights reserved.
+              </div>
+              <div class="footer">
+                
+                <div class="clear"></div>
+                <div class="privacy">
+                  &copy;DannyComputer2008.com  All rights reserved.
+                </div>
+                <ul class="social">
+                  
+                  <li>
+                    
+                  </li>
+                </ul>
+                <div class="clear"></div>
+              </div>
+              </center>
+            </footer>
+      </div>
+    </div>
+   <!-- <div id="panel">
+      <a href="#" class="panel_button"></a>
+      <div class="inner">
+        <h3>Theme settings</h3>
+        <h4>Background color:</h4>
+        <ul class="tools_list">
+          <li>
+            <a href="javascript:set_bg_color('#16994a');" class="color1"></a>
+            <a href="javascript:set_bg_color('#e95d5d');" class="color2"></a>
+            <a href="javascript:set_bg_color('#008eb4');" class="color3"></a>
+            <a href="javascript:set_bg_color('#77479b');" class="color4"></a>
+          </li>
+          <li>
+            <a href="javascript:set_bg_color('#1352a2');" class="color5"></a>
+            <a href="javascript:set_bg_color('#45a38d');" class="color6"></a>
+            <a href="javascript:set_bg_color('#f16c47');" class="color7"></a>
+            <a href="javascript:set_bg_color('#999999');" class="color8"></a>
+          </li>
+        </ul>
+        <h4>Background pattern:</h4>
+        <ul class="tools_list">
+          <li>
+            <a href="javascript:set_bg_image('pattern1');" class="pattern1"></a>
+            <a href="javascript:set_bg_image('pattern2');" class="pattern2"></a>
+            <a href="javascript:set_bg_image('pattern3');" class="pattern3"></a>
+            <a href="javascript:set_bg_image('pattern4');" class="pattern4"></a>
+          </li>
+          <li>
+            <a href="javascript:set_bg_image('pattern5');" class="pattern5"></a>
+            <a href="javascript:set_bg_image('pattern6');" class="pattern6"></a>
+            <a href="javascript:set_bg_image('pattern7');" class="pattern7"></a>
+            <a href="javascript:set_bg_image('pattern8');" class="pattern8"></a>
+          </li>
+        </ul>
+        <div class="button_wrap1">
+          <a href="javascript:reset();" class="button1">Reset</a>
+        </div>
+      </div>
+    </div>-->
+</div>
+<script>
+
+$(window).load(function() {
+  $("#show_icons").click(function(){
+    $(".icons, .icons a").toggle('slow');
+   })
+	$('.spinner').fadeOut();
+	$('body').css({overflow:'auto', 'min-height':'820px'});
+  $('#contact-form').forms()
+	$('.skill_set').each(function() {
+		var skill = $(this);
+		var skill_width = $(this).attr('data-skill');  
+	 // skill.css('width', skill_width+'%');
+		skill.animate({
+				width: skill_width+'%'
+		},1000);
+	});
+  $(function(){
+    var li=$('.tweet_list li')
+     ,n=0
+     ,activeClass="active"
+   
+    function fu(){
+     li.removeClass(activeClass)
+     li.eq(n++).addClass(activeClass)
+     n=n<li.length?n:0
+     setTimeout(fu,4000)
+    }
+    fu()
+   })
+  jQuery(".jackbox[data-group]").jackBox("init", {deepLinking: false, useThumbs:false});
+  filter_start();
+})
+</script>
+</body>
+</html>
