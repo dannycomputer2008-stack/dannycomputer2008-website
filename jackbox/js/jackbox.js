@@ -63,7 +63,7 @@
 	audioPlayer = "jackbox/modules/jackbox_audio.html",
 	
 	// The url to the social buttons module
-	socialbuttons = "jackbox/modules/jackbox_social.php",
+	socialbuttons = "null",
 	
 	// The Vimeo video iframe to be used (edit with caution)
 	vimeoMarkup = "http://player.vimeo.com/video{url}?title=0&byline=0&portrait=0&autoplay={autoplay}&color=FFFFFF&wmode=transparent",
