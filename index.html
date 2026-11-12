@@ -1,699 +1,843 @@
-<html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
 <head>
-  <title>Danny Computer 2008</title>
-  <meta charset="utf-8">
-  <link href='images/favicon.ico' rel='shortcut icon'>
-  <link href="jackbox/css/jackbox.css" rel="stylesheet" type="text/css" />
-  <link href="jackbox/css/jackbox_hovers.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/jquery.js"></script>
-  <script type="text/javascript" src="jackbox/js/libs/jquery.address-1.5.min.js"></script>
-  <script type="text/javascript" src="jackbox/js/libs/Jacked.js"></script>
-  <script type="text/javascript" src="jackbox/js/jackbox-swipe.js"></script>
-  <script type="text/javascript" src="jackbox/js/jackbox.js"></script>
-  <script type="text/javascript" src="jackbox/js/libs/StackBlur.js"></script>
-  <script src="js/scripts.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZynayP0FiRP6otrZUhmv6UrM_DLjHkz4&callback=initialize&v=3.exp"></script>
-  <script>
-		var map;
-		var LaPuente = new google.maps.LatLng(34.020011, -117.949508);
-		var MY_MAPTYPE_ID = 'hiphop';
-		function initialize() {
-			var stylez = [
-				{
-					"stylers": [
-						{ "saturation": -97 }
-					]
-				},{
-				}
-			] 
-			var mapOptions = {
-				zoom: 12,
-				center: LaPuente,
-				mapTypeControlOptions: {
-					mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
-				},
-				mapTypeId: MY_MAPTYPE_ID
-			};
-			map = new google.maps.Map(document.getElementById('map_canvas'),
-					mapOptions);
-			var styledMapOptions = {
-				name: 'GrayScale'
-			};
-			var jayzMapType = new google.maps.StyledMapType(stylez, styledMapOptions);
-			map.mapTypes.set(MY_MAPTYPE_ID, jayzMapType);
-		}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DannyComputer2008 · 洛杉矶专业 IT 技术服务</title>
+    <meta name="description" content="DannyComputer2008 为大洛杉矶家庭与中小企业提供专业电脑维修、网络维护、企业 IT 基础设施支持及远程技术服务。始于 2008 年，20+ 年实战经验。">
+    <meta name="robots" content="index,follow">
+    <meta name="theme-color" content="#F5F5F7">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DannyComputer2008 · 专业 IT 技术服务">
+    <meta property="og:description" content="电脑、网络与企业 IT 支持。大洛杉矶地区上门服务及远程协助。">
+    <meta property="og:site_name" content="DannyComputer2008">
+    <meta property="og:locale" content="zh_CN">
+    <!-- 当前版本保留 Tailwind Play CDN，确保单文件可直接预览。正式部署可按随附配置编译为本地 CSS。 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                    },
+                    colors: {
+                        appleBlue: '#0071E3',
+                        appleBlueHover: '#0077ED',
+                        appleLightBg: '#F5F5F7',
+                        appleDarkBg: '#000000',
+                        appleDarkCard: '#161617',
+                        appleDarkBorder: '#2D2D2F',
+                    }
+                }
+            }
+        }
     </script>
-  <!--[if lt IE 9]>
-  	<script type="text/javascript" src="js/html5.js"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="css/ie.css">
-  <![endif]-->
-	<!--[if lt IE 8]>
-		<div style=' clear: both; text-align:center; position: relative;'>
-     <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-       <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
-    </a>
-  </div>
-	<![endif]-->
+    <style>
+        /* 苹果级平滑滚动与字体抗锯齿 */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+        /* Bento 卡片微动效 */
+        .bento-card {
+            transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .bento-card:hover {
+            transform: translateY(-4px);
+        }
+        /* 渐入动画采用渐进增强：默认内容可见，JS 正常运行时才启用隐藏态 */
+        .js-motion .fade-up {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+        }
+        .js-motion .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+            .js-motion .fade-up { opacity: 1; transform: none; }
+        }
+        .honeypot-field { position:absolute !important; left:-10000px !important; width:1px !important; height:1px !important; overflow:hidden !important; }
+        
+        /* 稳健的光学居中对齐：利用 inline-block 与 text-center 配合负向 margin 微调消除全角标点视觉偏左 */
+        .optical-center-heading {
+            display: inline-block;
+            position: relative;
+            left: 0.18em;
+        }
+        .optical-center-sub {
+            display: inline-block;
+            position: relative;
+            left: 0.12em;
+        }
+        /* 英文环境下无需标点微调偏移 */
+        html[lang="en"] .optical-center-heading,
+        html[lang="en"] .optical-center-sub {
+            left: 0;
+        }
+    </style>
 </head>
-<html>
-<html lang="en">
-<head>
-    <meta name="description"
-      content="Professional computer repair services by Danny. Fast, reliable, and affordable computer repairs for home and business in your local area. Contact Danny at DANNYCOMPUTER2008.COM for top-notch service.">
-    <meta name="keywords"
-      content="computer repair, PC repair, laptop repair, IT services, tech support, Danny's Computer Repair">
-</head>
-<body onload="initialize()">
-<div id="main_bg">
-<div class="glow"></div>
-  <div class="spinner"><span></span></div>  
-  <div class="main_container">
-    <div class="container_12">
-        <!--header -->
-            <header>
-              <div class="grid_12">
-                <h1><a class="hide_text" href="#!/splash" id="logo">Danny Computer 2008</a></h1>
-                <div class="menuHolder">
-                   <nav class="menu">
-                      <ul id="menu">
-                          <li><a href="#!/splash"><div class="mText">splash</div></a></li> 
-                          <li class="about_link"><a href="#!/about"><em></em><span>About</span></a></li>
-                          <li class="port_link"><a href="#!/clients"><em></em><span>Clients</span></a></li> 
-                          <li class="service_link"><a href="#!/services"><em></em><span>Services</span></a></li>
-                          <li class="contact_link"><a  href="#!/contacts"><em></em><span>Contact</span></a></li>
-                      </ul>
-                    </nav>
-                </div>
-                <div class="description">
-                  <div class="inner">Hi there! I am a computer technician who provides IT services to small businesses and individuals, currently working in greater Los Angeles. Thanks for visiting my website.</div>
-                </div>
-                <div class="clear"></div>
-              </div>
-              <div class="clear"></div>
-            </header>
-        <!--header end-->    
-            <nav class="splashHolder">
-                 <ul class="splash_menu">
-                    <li class="grid_3">
-                        <a href="#!/about">
-                          <em class="menu_icon"><img src="images/splash_icon1.png" alt=""></em>
-                          <span>About</span>
-                        </a>
-                    </li>
-                    <li class="grid_3">
-                        <a href="#!/clients">
-                          <em class="menu_icon"><img src="images/splash_icon2.png" alt=""></em>
-                          <span>Clients</span>
-                        </a>
-                    </li> 
-                    <li class="grid_3">
-                        <a href="#!/services">
-                          <em class="menu_icon"><img src="images/splash_icon3.png" alt=""></em>
-                          <span>Services</span>
-                        </a>
-                    </li>
-                    <li class="grid_3 last-col">
-                        <a  href="#!/contacts">
-                          <em class="menu_icon"><img src="images/splash_icon4.png" alt=""></em>
-                          <span>Contact</span>
-                        </a>
-                    </li>
-               </ul>
-            </nav>
-          <!--content -->
-            <section id="content">
-              <ul>
-                    <li id="splash"></li>
-                    <li id="about">
-                      <div class="wrapper">
-                        <article class="grid_12">
-                          <div class="box">
-                            <div class="grid_7 alpha">
-                              <div class="pad_box1">
-                                <div class="biography">
-                                  <div class="flexslider">
-                                    <ul class="slides">
-                                      <li><img src="images/slide1.jpg" alt=""></li>
-                                      <li><img src="images/slide2.jpg" alt=""></li>
-                                      <li><img src="images/slide3.jpg" alt=""></li>
-                                    </ul>
-                                  </div>
-                                  <div class="text">
-                                    <ul class="date_list">
-                                    <br />
-                                      <li>
-                                        <strong>Name</strong><br>
-                                        Danny
-                                      </li>
-                                    <br />
-                                      <li>
-                                        <strong>Education</strong><br>
-                                       
-                                        Liaoning university of technology<br>
-                                        China (2007)
-                                      </li>
-                                    <br />
-                                      <li>
-                                        <strong>Specialization</strong><br>
-                                        Computer Engineering<br>
-                                        Web Designe
-                                      </li>
-                                      
-                                    </ul>
-                                  </div>
-                                </div> 
-                              </div>
-                            </div>
-                            <div class="grid_5 omega last-col">
-                              <div class="pad_box2">
-                               <br />
-                               <br />
-                                <h2>My Experience</h2>
-                               <br />
-                                <ul class="experience_list">
-                                  <li>
-                                    <div class="ext_box experience">
-                                      <figure>
-                                        <strong>Computer Engineer</strong></figure>
-                                      <div>Since 2000</div>
-                                    </div>
-Perfect IT support for the small business. Because of my extensive computer maintaining and repairing knowledge, I can provide the best IT solution for any small business. I am an export in setting up maintaining and repairing.
-                                  </li>
-                                  <li>
-                                    <div class="ext_box experience">
-                                      <figure>
-                                        <strong>Web Designer</strong></figure>
-                                      <div>Since 2010</div>
-                                    </div>
-                                   The website I build is low-cost, easy to use,  feature-rich and beautiful.
-                                  </li>
-                                  
-                                </ul>
-                              </div>
-                            </div>
-                            <div class="clear"></div>
-                            
-                          </div>
-                        </article>
-                      </div>
-                    </li>
-                    
-                    <li id="clients">
-                      <div class="wrapper">
-                        <article class="grid_12">
-                          <div class="box">
-                            <div class="pad_box1">
-                              <h2 class="ind">My Clients</h2>
-                                <div class="filter_box">
-                                  <div class="portfolio-filter">
-                                      <ul id="portfolio-filter">
-                                        <li>
-                                            
-                                          </li>
-                                        </ul>
-                                   </div>
-                                   <div class="portfolio-item">
-                                      <ul id="portfolio-list">
-                                        <div class="portfolio-item">
-                                      <ul id="portfolio-list">
-                                        <li class="web">
-                                          <div class="portfolio-box">
-                                            <div class="portoflio-img">
-                                              <a class="jackbox" href="images/portfolio1.jpg" data-group="images" data-title="Moscow Central School of Music">
-                                                <img src="images/portfolio1.png" alt="">
-                                                <span class="description">
-                                                  <span class="inner">
-                                                    Moscow Central School of Music<br>
-                                                    <span>IT Support</span>
-                                                  </span>
-                                                </span>
-                                              </a>
-                                            </div>
-                                          </div>
-                                        </li>
-                                        <li class="web">
-                                          <div class="portfolio-box">
-                                            <div class="portoflio-img">
-                                              <a class="jackbox" href="images/portfolio2.jpg" data-group="images" data-title="Profusion Cosmetics">
-                                                <img src="images/portfolio2.png" alt="">
-                                                <span class="description">
-                                                  <span class="inner">
-                                                    Profusion Cosmetics<br>Company<br>
-                                                    <span>IT Support</span>
-                                                  </span>
-                                                </span>
-                                              </a>
-                                            </div>
-                                          </div>
-                                        </li>
-                                        <li class="web">
-                                          <div class="portfolio-box">
-                                            <div class="portoflio-img">
-                                              <a class="jackbox" href="images/portfolio3.jpg" data-group="images" data-title="Richin Trading">
-                                                <img src="images/portfolio3.png" alt="">
-                                                <span class="description">
-                                                  <span class="inner">
-                                                    Richin Trading<br>Company<br>
-                                                    <span>IT Support</span>
-                                                  </span>
-                                                </span>
-                                              </a>
-                                            </div>
-                                          </div>
-                                        </li>
-                                        <li class="web">
-                                          <div class="portfolio-box">
-                                            <div class="portoflio-img">
-                                              <a class="jackbox" href="images/portfolio4.jpg" data-group="images" data-title="Cabinet Square & Flooring Inc.">
-                                                <img src="images/portfolio4.png" alt="">
-                                                <span class="description">
-                                                  <span class="inner">
-                                                    Cabinet Square & Flooring Inc.<br>
-                                                    <span>IT Support</span>
-                                                  </span>
-                                                </span>
-                                              </a>
-                                            </div>
-                                          </div>
-                                        </li>
-                                        <!--这是一段注释。注释不会在浏览器中显示。
-                                        <li class="web">
-                                          <div class="portfolio-box">
-                                            <div class="portoflio-img">
-                                              <a class="jackbox" href="images/portfolio5.jpg" data-group="images" data-title="America Asian Travel Center">
-                                                <img src="images/portfolio5.png" alt="">
-                                                <span class="description">
-                                                  <span class="inner">
-                                                    America Asian Travel Center<br>
-                                                    <span>IT Support</span>
-                                                  </span>
-                                                </span>
-                                              </a>
-                                            </div>
-                                          </div>
-                                        </li>
-                                        <li class="web">
-                                          <div class="portfolio-box">
-                                            <div class="portoflio-img">
-                                              <a class="jackbox" href="images/portfolio6.jpg" data-group="images" data-title="Apple Event Supplies">
-                                                <img src="images/portfolio6.png" alt="">
-                                                <span class="description">
-                                                  <span class="inner">
-                                                    Apple Event Supplies<br>Company<br>
-                                                    <span>IT Support</span>
-                                                  </span>
-                                                </span>
-                                              </a>
-                                            </div>
-                                          </div>
-                                        </li>
-                                        -->
-                                        <li class="web">
-                                          <div class="portfolio-box">
-                                            <div class="portoflio-img">
-                                              <a class="jackbox" href="images/portfolio7.gif" data-group="images" data-title="Law Office Of Taihe Wang">
-                                                <img src="images/portfolio7.png" alt="">
-                                                <span class="description">
-                                                  <span class="inner">
-                                                    Law Office of<br>Taihe Wang<br>
-                                                    <span>IT Support</span>
-                                                  </span>
-                                                </span>
-                                              </a>
-                                            </div>
-                                          </div>
-                                        </li>
-                                        <li class="web">
-                                          <div class="portfolio-box">
-                                            <div class="portoflio-img">
-                                              <a class="jackbox" href="images/portfolio8.jpg" data-group="images" data-title="Kokaho Aquarium">
-                                                <img src="images/portfolio8.png" alt="">
-                                                <span class="description">
-                                                  <span class="inner">
-                                                    Kokaho Aquarium<br>Company<br>
-                                                    <span>IT Support</span>
-                                                  </span>
-                                                </span>
-                                              </a>
-                                            </div>
-                                          </div>
-                                        </li>
-                                        <li class="web">
-                                          <div class="portfolio-box">
-                                            <div class="portoflio-img">
-                                              <a class="jackbox" href="images/portfolio9.jpg" data-group="images" data-title="Chuan International Co">
-                                                <img src="images/portfolio9.png" alt="">
-                                                <span class="description">
-                                                  <span class="inner">
-                                                    Chuan International Co<br>
-                                                    <span>IT Support</span>
-                                                  </span>
-                                                </span>
-                                              </a>
-                                            </div>
-                                          </div>
-                                        </li>
-                                        <!--
-                                        <li class="web">
-                                          <div class="portfolio-box">
-                                            <div class="portoflio-img">
-                                              <a class="jackbox" href="images/portfolio10.jpg" data-group="images" data-title="SINO Enterprises Inc. restaurant contract funiture specialists">
-                                                <img src="images/portfolio10.png" alt="">
+<body class="bg-white text-[#1D1D1F] dark:bg-black dark:text-[#F5F5F7] selection:bg-appleBlue selection:text-white">
 
-                                                <span class="description">
-                                                  <span class="inner">
-                                                    SINO Enterprises<br>Inc.<br>
-                                                    <span>IT Support</span>
-                                                  </span>
-                                                </span>
-                                              </a>
-                                            </div>
-                                          </div>
-                                        </li>
-                                        -->
-                                        <li class="web">
-                                          <div class="portfolio-box">
-                                            <div class="portoflio-img">
-                                              <a class="jackbox" href="images/portfolio11.jpg" data-group="images" data-title="A/C & refrigeration sales & services">
-                                                <img src="images/portfolio11.png" alt="">
-                                                <span class="description">
-                                                  <span class="inner">
-                                                    Commercial Air Cooler<br>Inc.<br>
-                                                    <span>IT Support</span>
-                                                  </span>
-                                                </span>
-                                              </a>
-                                            </div>
-                                          </div>
-                                        </li>
-                                      </ul>
-                                  </div>      
-                                </div>
-                            <div class="clear"></div>
-                            
-                          </div>
-												</div>
-                        </article>
-                      </div>
-                    </li>
-                    <li id="services">
-                      <div class="wrapper">
-                        <article class="grid_12">
-                          <div class="box">
-                            <article class="grid_4 alpha">
-                              <div class="pad_box1">
-                                <h2 class="ind1">Skills</h2>
-                                <div class="skill_box">
-																	<div class="skill_label">Computer Hardware<span class="skill_num">9/10</span></div>
-																	<div class="skill_level"><div class="skill_set" data-skill="90"></div></div>
-																</div>
-																<div class="skill_box">
-																	<div class="skill_label">Windows System<span class="skill_num">9/10</span></div>
-																	<div class="skill_level"><div class="skill_set" data-skill="90"></div></div>
-																</div>
-																<div class="skill_box">
-																	<div class="skill_label">Windows Software<span class="skill_num">9/10</span></div>
-																	<div class="skill_level"><div class="skill_set" data-skill="90"></div></div>
-																</div>
-																<div class="skill_box">
-																	<div class="skill_label">LAN<span class="skill_num">9/10</span></div>
-																	<div class="skill_level"><div class="skill_set" data-skill="90"></div></div>
-																</div>
-																<div class="skill_box">
-																	<div class="skill_label">HTML<span class="skill_num">8/10</span></div>
-																	<div class="skill_level"><div class="skill_set" data-skill="80"></div></div>
-																</div>
-																<!--
-																<div class="skill_box last">
-																	<div class="skill_label">Photoshop<span class="skill_num">7/10</span></div>
-																	<div class="skill_level"><div class="skill_set" data-skill="70"></div></div>
-																</div>
-																</li>
-                                                             -->    
-                              </div>
-                            </article>
-														<article class="grid_3">
-															<div class="pad_box1">
-                                <h2 class="ind1">Services</h2>
-                                <ul class="service_list">
-                                  <li>
-                                    <h3>Small Business IT</h3>
-                                 &bull; On-site Service <br /> 
-                                 &bull; Build or Repair Computers<br /> 
-                                 &bull; Broadband Internet <br /> 
-                                 &bull; Office LAN Networking <br /> 
-                                 &bull; System backup and restore <br /> 
-                                 &bull; Data backup and recovery
-                                  </li>
-                                  <li class="last">
-                                    <h3>Website Design</h3>
-                                 &bull; Name Card Website <br>
-                                 &bull; Show Room Website <br>
-                                 
-                                  </li>
-                                </ul>
-                                <div class="button_wrap2">
-                                  
-                                </div>
-                              </div>
-														</article>
-                            <article class="grid_5 omega">
-                              <div class="pad_box2">
-                                <h2 class="ind">Price</h2>
-                                <ul class="reference_list">
-                                  <li
-                                    <blockquote>
-                                      "$60/hr. <br />Tell me the problems or what you need me to do, I will tell you how long the work will take and the price, no additional charge beyond the time.
-                                    </blockquote>
-                                    <div class="author">Simple Charge</div>
-                                  </li>
-                                  <li class="last">
-                                    <blockquote>
-                                     "My travel time is considered as work hours. Time is estimated by Google Maps."
-                                    </blockquote>
-                                    <div class="author">I live in La Puente</div>
-                                  </li>
-                                </ul>
-                              </div>
-                            </article>
-                            <div class="clear"></div>
-                            
-                          </div>
-                        </article>
-                      </div>
-                    </li>
-                    <li id="contacts">
-                      <div class="wrapper">
-                        <article class="grid_12">
-                         
-                          <div class="box">
-                  <!--
-                            <div class="grid_4 alpha">
-                              <div class="pad_box1">
-                                <h2 class="ind">Email Me</h2>
-                                <form id="contact-form">
-                                    <div class="success">Contact form submitted!<br>
-                                        <strong>We will be in touch soon.</strong>
-                                    </div>
-                                    <fieldset>
-                                      <label class="name">
-                                        <input type="text" value="Your Name*">
-                                          <span class="error">*This is not a valid name.</span> <span class="empty">*This field is required.</span>
-                                      </label>
-                                      <label class="email">
-                                        <input type="text" value="Your Email*">
-                                          <span class="error">*This is not a valid email address.</span> <span class="empty">*This field is required.</span>
-                                      </label>
-                                      <label class="message notRequired">
-                                        <textarea>Message* This option is under adjusting. Please email me at DannyComputer2008@Gmail.com*</textarea>
-                                          <span class="error">*The message is too short.</span> <span class="empty">*This field is required.</span>
-                                      </label>
-                                      <div class="buttons2">
-                                          <a href="#" data-type="submit" class="button">Send Your Message</a>
-                                      </div>
-                                    </fieldset>
-                                </form>
-                              </div>
-                            </div>
-                  <li>-->
-                  <div class="grid_4 alpha">
-                              <div class="pad_box1" >
-                              <dd>
-                                      <div class="rustdesk-button" style="margin-top: 70px; text-align: center;">
-  <a href="https://github.com/rustdesk/rustdesk/releases/download/1.2.6/rustdesk-1.2.6-x86_64.exe">
-    <img src="images/RustDesk.png" alt="Download Rustdesk" width="245" height="90" border="0" />
-  </a>
-</div>
-                                      </dd>
-                                
-                                
-                                
-                    <!--
-                                <form id="contact-form">
-                                    <div class="success">Contact form submitted!<br>
-                                        <strong>We will be in touch soon.</strong>
-                                    </div>
-                                    <fieldset>
-                                      <label class="name">
-                                        <input type="text" value="Your Name*">
-                                          <span class="error">*This is not a valid name.</span> <span class="empty">*This field is required.</span>
-                                      </label>
-                                      <label class="email">
-                                        <input type="text" value="Your Email*">
-                                          <span class="error">*This is not a valid email address.</span> <span class="empty">*This field is required.</span>
-                                      </label>
-                                      <label class="message notRequired">
-                                        <textarea>Message* This option is under adjusting. Please email me at DannyComputer2008@Gmail.com*</textarea>
-                                          <span class="error">*The message is too short.</span> <span class="empty">*This field is required.</span>
-                                      </label>
-                                      <div class="buttons2">
-                                          <a href="#" data-type="submit" class="button">Send Your Message</a>
-                                      </div>
-                                    </fieldset>
-                                </form>
-                     <li>-->
-                              </div>
-
-
-                              
-                            </div>
-                            <div class="grid_8 omega">
-                              <div class="pad_box2">
-                                <div class="ext_box map_box">
-                                  <figure>
-                                    <div id="map_canvas"></div>
-                                  </figure>
-                                  <div>
-                                  <h2 class="ind" style="margin-top: 50px;">My Location</h2>
-                                <dd><span><img  alt=""></span>La Puente, CA 91744</dd>
-                                    <h2 class="ind" style="margin-top: 50px;">Contact Info</h2>
-                                    
-                                    <p class="p3 gray1"> </p>
-                                    <dl class="address">
-                                      <!--<dt>Danny Computer 2008, INC
-                                      <br />
-                                      P.O.Box 4074<br>  <li>--> 
-
-                                      <dd><span><img src="images/ico1.png" alt=""></span>+1 626 528 2988</dd>
-                                      <dd><span><img src="images/ico2.png" alt=""></span><a href="mailto:dannycomputer2008@gmail.com">DannyComputer2008<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Gmail.com</a></dd>
-                                      <br />
-                                                                            <br />
-                                                                            
-                                     
-                                      
-                                      
-                                    </dl>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            
-                            <div class="clear"></div>
-                          </div>
-                        </article>
-                      </div>
-                    </li>
-                    
-              </ul>
-            </section>
-            <center>
-            <footer>
-              <div class="splash_footer">
-                &copy;DannyComputer2008.com  All rights reserved.
-              </div>
-              <div class="footer">
-                
-                <div class="clear"></div>
-                <div class="privacy">
-                  &copy;DannyComputer2008.com  All rights reserved.
-                </div>
-                <ul class="social">
-                  
-                  <li>
-                    
-                  </li>
-                </ul>
-                <div class="clear"></div>
-              </div>
-              </center>
-            </footer>
-      </div>
-    </div>
-   <!-- <div id="panel">
-      <a href="#" class="panel_button"></a>
-      <div class="inner">
-        <h3>Theme settings</h3>
-        <h4>Background color:</h4>
-        <ul class="tools_list">
-          <li>
-            <a href="javascript:set_bg_color('#16994a');" class="color1"></a>
-            <a href="javascript:set_bg_color('#e95d5d');" class="color2"></a>
-            <a href="javascript:set_bg_color('#008eb4');" class="color3"></a>
-            <a href="javascript:set_bg_color('#77479b');" class="color4"></a>
-          </li>
-          <li>
-            <a href="javascript:set_bg_color('#1352a2');" class="color5"></a>
-            <a href="javascript:set_bg_color('#45a38d');" class="color6"></a>
-            <a href="javascript:set_bg_color('#f16c47');" class="color7"></a>
-            <a href="javascript:set_bg_color('#999999');" class="color8"></a>
-          </li>
-        </ul>
-        <h4>Background pattern:</h4>
-        <ul class="tools_list">
-          <li>
-            <a href="javascript:set_bg_image('pattern1');" class="pattern1"></a>
-            <a href="javascript:set_bg_image('pattern2');" class="pattern2"></a>
-            <a href="javascript:set_bg_image('pattern3');" class="pattern3"></a>
-            <a href="javascript:set_bg_image('pattern4');" class="pattern4"></a>
-          </li>
-          <li>
-            <a href="javascript:set_bg_image('pattern5');" class="pattern5"></a>
-            <a href="javascript:set_bg_image('pattern6');" class="pattern6"></a>
-            <a href="javascript:set_bg_image('pattern7');" class="pattern7"></a>
-            <a href="javascript:set_bg_image('pattern8');" class="pattern8"></a>
-          </li>
-        </ul>
-        <div class="button_wrap1">
-          <a href="javascript:reset();" class="button1">Reset</a>
+    <!-- ==================== 1. 首屏 HERO 区域 ==================== -->
+    <section class="relative min-h-[85vh] flex flex-col items-center justify-center px-6 py-24 text-center overflow-hidden">
+        <div class="absolute top-5 right-5 z-20 flex items-center gap-2">
+            <button id="lang-toggle" type="button" class="rounded-full border border-black/10 dark:border-white/15 px-4 py-2 text-xs font-semibold bg-white/80 dark:bg-[#161617]/80 backdrop-blur" aria-label="Switch language">English</button>
+            <button id="theme-toggle" type="button" class="rounded-full border border-black/10 dark:border-white/15 w-10 h-10 inline-flex items-center justify-center bg-white/80 dark:bg-[#161617]/80 backdrop-blur" aria-label="Toggle color theme"><i data-lucide="moon" class="w-4 h-4"></i></button>
         </div>
-      </div>
-    </div>-->
-</div>
-<script>
+        <!-- 微妙的背景光晕装饰 -->
+        <div class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] rounded-full bg-appleBlue/10 dark:bg-appleBlue/15 blur-[120px]"></div>
 
-$(window).load(function() {
-  $("#show_icons").click(function(){
-    $(".icons, .icons a").toggle('slow');
-   })
-	$('.spinner').fadeOut();
-	$('body').css({overflow:'auto', 'min-height':'820px'});
-  $('#contact-form').forms()
-	$('.skill_set').each(function() {
-		var skill = $(this);
-		var skill_width = $(this).attr('data-skill');  
-	 // skill.css('width', skill_width+'%');
-		skill.animate({
-				width: skill_width+'%'
-		},1000);
-	});
-  $(function(){
-    var li=$('.tweet_list li')
-     ,n=0
-     ,activeClass="active"
-   
-    function fu(){
-     li.removeClass(activeClass)
-     li.eq(n++).addClass(activeClass)
-     n=n<li.length?n:0
-     setTimeout(fu,4000)
-    }
-    fu()
-   })
-  jQuery(".jackbox[data-group]").jackBox("init", {deepLinking: false, useThumbs:false});
-  filter_start();
-})
-</script>
+        <div class="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center">
+            <!-- 品牌资历胶囊徽章 -->
+            <div class="inline-flex items-center justify-center gap-2.5 px-5 py-2 rounded-full bg-[#F5F5F7] dark:bg-[#161617] border border-black/10 dark:border-white/15 mb-9 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-appleBlue shrink-0"></span>
+                <span data-i18n="badge" class="text-xs sm:text-sm font-medium tracking-wider text-[#1D1D1F]/80 dark:text-[#F5F5F7]/80">
+                    始于 2008 洛杉矶 · 20+ 年 IT 实战经验
+                </span>
+            </div>
+
+            <!-- 苹果标志性大字号主标题（加固的光学视觉居中） -->
+            <div class="w-full text-center mb-7">
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.15]">
+                    <span class="optical-center-heading">
+                        <span data-i18n="heroTitle1">让每一台电脑</span><br>
+                        <span data-i18n="heroTitle2" class="text-appleBlue">正常工作</span>
+                    </span>
+                </h1>
+            </div>
+
+            <!-- 核心服务说明副标题 -->
+            <div class="w-full text-center mb-11">
+                <p class="optical-center-sub max-w-2xl mx-auto text-base sm:text-xl text-[#6E6E73] dark:text-[#86868B] font-normal leading-relaxed">
+                    <span data-i18n-html="heroSub">从电脑选购到网络调优，按需解决您的每一项技术难题<br class="hidden sm:inline">透明、高效、可靠，让专业服务省心一步</span>
+                </p>
+            </div>
+
+            <!-- 唯一主操作按钮：预约上门 -->
+            <div class="flex items-center justify-center">
+                <a href="#booking" data-i18n="heroBtn" class="inline-flex items-center justify-center min-w-[168px] px-9 py-4 rounded-full bg-appleBlue hover:bg-appleBlueHover text-white font-semibold text-base sm:text-lg tracking-wide shadow-lg shadow-appleBlue/25 transition-all duration-200 active:scale-95">
+                    预约上门
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 2. 核心服务矩阵 (统一 max-w-5xl 与全站左右严格对齐) ==================== -->
+    <section id="services" class="max-w-5xl mx-auto px-6 py-20">
+        <!-- 标题栏：统一与下方网格左边缘严格对齐 -->
+        <div class="mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-black/5 dark:border-white/10 pb-6">
+            <div>
+                <p data-i18n="tagCoreServices" class="text-xs font-semibold uppercase tracking-[0.2em] text-appleBlue mb-2">Core Services</p>
+                <h2 data-i18n="servicesTitle" class="text-3xl sm:text-4xl font-bold tracking-tight">专业电脑、网络与企业 IT 服务</h2>
+            </div>
+            <p data-i18n="servicesSub" class="text-sm text-[#6E6E73] dark:text-[#86868B]">
+                大洛杉矶地区上门 & 远程极速响应
+            </p>
+        </div>
+
+        <!-- 四项核心服务 2x2 对齐网格（桌面端两两并排，卡片宽敞工整，与上下所有板块左右严格对齐） -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+            <!-- 卡片 1：电脑维修与系统救援 -->
+            <div class="bento-card fade-up rounded-3xl p-8 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between h-full">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-appleBlue/10 text-appleBlue flex items-center justify-center mb-6">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                    <h3 data-i18n="card1Title" class="text-xl sm:text-2xl font-bold mb-3 tracking-tight">硬件维修与故障排查</h3>
+                    <p data-i18n="card1Desc" class="text-sm text-[#6E6E73] dark:text-[#86868B] leading-relaxed mb-6">
+                        精准定位不开机、蓝屏死机、过热降频、硬盘损坏及进水故障。支持 Windows 台式机、笔记本及 Mac 全系硬件升级与更换。
+                    </p>
+                </div>
+                <ul class="space-y-3 text-sm font-medium text-[#1D1D1F]/85 dark:text-[#F5F5F7]/85 border-t border-black/5 dark:border-white/10 pt-5">
+                    <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0"></i><span data-i18n="card1Item1">固态硬盘无损迁移与扩容</span></li>
+                    <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0"></i><span data-i18n="card1Item2">深度清灰散热硅脂更换</span></li>
+                    <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0"></i><span data-i18n="card1Item3">误删文件与故障盘数据恢复</span></li>
+                </ul>
+            </div>
+
+            <!-- 卡片 2：选购咨询与按需定制 -->
+            <div class="bento-card fade-up rounded-3xl p-8 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between h-full">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-appleBlue/10 text-appleBlue flex items-center justify-center mb-6">
+                        <i data-lucide="sliders" class="w-6 h-6"></i>
+                    </div>
+                    <h3 data-i18n="card2Title" class="text-xl sm:text-2xl font-bold mb-3 tracking-tight">电脑选购与专属装机</h3>
+                    <p data-i18n="card2Desc" class="text-sm text-[#6E6E73] dark:text-[#86868B] leading-relaxed mb-6">
+                        拒绝参数冗余与消费陷阱。根据您的日常办公、跨境电商、剪辑渲染或游戏预算，提供客观选购清单或一对一手工装机调优。
+                    </p>
+                </div>
+                <ul class="space-y-3 text-sm font-medium text-[#1D1D1F]/85 dark:text-[#F5F5F7]/85 border-t border-black/5 dark:border-white/10 pt-5">
+                    <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0"></i><span data-i18n="card2Item1">品牌机 / Mac 购买避坑指导</span></li>
+                    <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0"></i><span data-i18n="card2Item2">静音办公与高性能主机定制</span></li>
+                    <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0"></i><span data-i18n="card2Item3">新机开箱初始化与软件部署</span></li>
+                </ul>
+            </div>
+
+            <!-- 卡片 3：家庭与小型办公室网络调优 -->
+            <div class="bento-card fade-up rounded-3xl p-8 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between h-full">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-appleBlue/10 text-appleBlue flex items-center justify-center mb-6">
+                        <i data-lucide="wifi" class="w-6 h-6"></i>
+                    </div>
+                    <h3 data-i18n="card3Title" class="text-xl sm:text-2xl font-bold mb-3 tracking-tight">家庭与办公网络调优</h3>
+                    <p data-i18n="card3Desc" class="text-sm text-[#6E6E73] dark:text-[#86868B] leading-relaxed mb-6">
+                        告别 Wi-Fi 死角、掉线与视频卡顿。针对洛杉矶大户型住宅、仓库与办公室提供全屋 Mesh 组网、布线排查及打印机共享配置。
+                    </p>
+                </div>
+                <ul class="space-y-3 text-sm font-medium text-[#1D1D1F]/85 dark:text-[#F5F5F7]/85 border-t border-black/5 dark:border-white/10 pt-5">
+                    <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0"></i><span data-i18n="card3Item1">全屋 Wi-Fi 6/7 无缝漫游覆盖</span></li>
+                    <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0"></i><span data-i18n="card3Item2">无线打印机 / NAS 私有云配置</span></li>
+                    <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0"></i><span data-i18n="card3Item3">病毒木马清理与系统加速优化</span></li>
+                </ul>
+            </div>
+
+            <!-- 卡片 4：企业 IT 基础设施与运维 -->
+            <div class="bento-card fade-up rounded-3xl p-8 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between h-full">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-appleBlue/10 text-appleBlue flex items-center justify-center mb-6">
+                        <i data-lucide="server" class="w-6 h-6"></i>
+                    </div>
+                    <h3 data-i18n="card4Title" class="text-xl sm:text-2xl font-bold mb-3 tracking-tight">企业 IT 基础设施与运维</h3>
+                    <p data-i18n="card4Desc" class="text-sm text-[#6E6E73] dark:text-[#86868B] leading-relaxed mb-6">为中小企业维护稳定、安全、易管理的 IT 环境，减少停机与日常运维负担。</p>
+                </div>
+                <ul class="space-y-3 text-sm font-medium text-[#1D1D1F]/85 dark:text-[#F5F5F7]/85 border-t border-black/5 dark:border-white/10 pt-5">
+                    <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0 mt-0.5"></i><span data-i18n="card4Item1">Windows Server 部署与维护</span></li>
+                    <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0 mt-0.5"></i><span data-i18n="card4Item2">企业路由器、交换机与网络配置</span></li>
+                    <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0 mt-0.5"></i><span data-i18n="card4Item3">NAS、文件共享与备份系统</span></li>
+                    <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0 mt-0.5"></i><span data-i18n="card4Item4">办公室 IT 设备与故障支持</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 底部 Bento 信任指标卡片（1:1 等宽，统一视觉重量） -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mt-6 items-stretch">
+            <div class="bento-card fade-up md:col-span-6 rounded-3xl p-8 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between">
+                <div>
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span data-i18n="tagTransparentPricing" class="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-appleBlue">Transparent Pricing</span>
+                        <span data-i18n="pricingRate" class="inline-flex items-center px-3 py-1 rounded-full bg-appleBlue/10 text-appleBlue text-xs sm:text-sm font-bold tracking-tight">$80/小时</span>
+                    </div>
+                    <h4 data-i18n="pricingTitle" class="text-2xl sm:text-3xl font-bold mb-3 tracking-tight">预估工时封顶，修不好不收费</h4>
+                </div>
+                <p data-i18n="pricingDesc" class="text-sm sm:text-base text-[#6E6E73] dark:text-[#86868B] leading-relaxed">
+                    服务按 $80/小时计费，维修前先评估并确认预计工时与人工费用。实际人工费用不超过事先确认的预估金额；若无法修复，不收取维修人工费。配件由客户自行购买，也可委托我代购，费用另行确认。无隐形收费。
+                </p>
+            </div>
+
+            <div class="bento-card fade-up md:col-span-6 rounded-3xl p-8 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between">
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <div class="text-3xl sm:text-4xl font-extrabold text-appleBlue mb-1 tracking-tight">2008</div>
+                        <div data-i18n="stat1Label" class="text-xs sm:text-sm text-[#6E6E73] dark:text-[#86868B]">洛杉矶本地创立至今</div>
+                    </div>
+                    <div>
+                        <div data-i18n="stat2Num" class="text-3xl sm:text-4xl font-extrabold text-appleBlue mb-1 tracking-tight">20+ 年</div>
+                        <div data-i18n="stat2Label" class="text-xs sm:text-sm text-[#6E6E73] dark:text-[#86868B]">IT 实战经验</div>
+                    </div>
+                </div>
+                <div class="mt-6 pt-5 border-t border-black/10 dark:border-white/10 flex items-center justify-between gap-2 text-xs sm:text-sm text-[#1D1D1F]/80 dark:text-[#F5F5F7]/80">
+                    <span data-i18n="langSupport">支持普通话 / 英语</span>
+                    <span data-i18n="areaBadge" class="px-3 py-1 rounded-full bg-appleBlue/10 text-appleBlue font-medium whitespace-nowrap">大洛杉矶上门服务</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 2.5 远程协助工具下载 (RustDesk 苹果极简卡片) ==================== -->
+    <section id="remote-support" class="max-w-5xl mx-auto px-6 py-10">
+        <div class="bento-card fade-up rounded-3xl p-8 sm:p-10 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col lg:flex-row lg:flex-wrap items-start lg:items-center justify-between gap-8">
+            <!-- 左侧：RustDesk 品牌图标与说明 -->
+            <div class="max-w-xl">
+                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white dark:bg-black border border-black/5 dark:border-white/10 mb-5 shadow-sm">
+                    <!-- RustDesk 标志性双弧环蓝色 SVG 图标 -->
+                    <svg class="w-6 h-6 shrink-0" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 4C10.268 4 4 10.268 4 18C4 21.31 5.149 24.351 7.07 26.746L10.354 23.462C9.247 21.918 8.6 20.032 8.6 18C8.6 12.809 12.809 8.6 18 8.6C20.032 8.6 21.918 9.247 23.462 10.354L26.746 7.07C24.351 5.149 21.31 4 18 4Z" fill="#0071E3"/>
+                        <path d="M28.93 9.254L25.646 12.538C26.753 14.082 27.4 15.968 27.4 18C27.4 23.191 23.191 27.4 18 27.4C15.968 27.4 14.082 26.753 12.538 25.646L9.254 28.93C11.649 30.851 14.69 32 18 32C25.732 32 32 25.732 32 18C32 14.69 30.851 11.649 28.93 9.254Z" fill="#0071E3" fill-opacity="0.7"/>
+                    </svg>
+                    <span class="text-base font-bold tracking-tight text-[#1D1D1F] dark:text-[#F5F5F7]">rustdesk</span>
+                    <span data-i18n="tagRemoteSupport" class="text-xs font-semibold uppercase tracking-widest text-appleBlue pl-1 border-l border-black/10 dark:border-white/15">Remote Support</span>
+                </div>
+
+                <h3 data-i18n="remoteTitle" class="text-2xl sm:text-3xl font-bold tracking-tight mb-3">
+                    下载 RustDesk，一键开启远程协助
+                </h3>
+                <p data-i18n="remoteDesc" class="text-sm sm:text-base text-[#6E6E73] dark:text-[#86868B] leading-relaxed">
+                    软件故障、系统设置与网络问题，可先通过远程方式排查。下载并运行后，按下方步骤发起连接。
+                </p>
+            </div>
+
+            <!-- 右侧：多平台官方下载按钮组 -->
+            <div class="w-full lg:w-auto flex flex-col sm:flex-row lg:flex-col gap-3.5 shrink-0">
+                <a href="https://github.com/rustdesk/rustdesk/releases/download/1.5.3/rustdesk-1.5.3-x86_64.exe" download
+                    class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-appleBlue hover:bg-appleBlueHover text-white font-semibold text-sm sm:text-base shadow-md shadow-appleBlue/20 transition-all duration-200 active:scale-95">
+                    <i data-lucide="download" class="w-4 h-4 shrink-0"></i>
+                    <span data-i18n="btnWinDownload">下载 Windows 版</span>
+                </a>
+                <a href="https://github.com/rustdesk/rustdesk/releases/download/1.5.3/rustdesk-1.5.3-aarch64.dmg" download
+                    class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-white dark:bg-black hover:bg-black/5 dark:hover:bg-white/10 text-[#1D1D1F] dark:text-[#F5F5F7] border border-black/10 dark:border-white/15 font-semibold text-sm sm:text-base transition-all duration-200 active:scale-95">
+                    <i data-lucide="laptop" class="w-4 h-4 text-appleBlue shrink-0"></i>
+                    <span data-i18n="btnMacDownload">下载 macOS 版</span>
+                </a>
+            </div>
+            <div class="w-full border-t border-black/5 dark:border-white/10 pt-6">
+                <p data-i18n="remoteSecurity" class="text-xs sm:text-sm text-[#6E6E73] dark:text-[#86868B] leading-relaxed mb-4">远程连接仅在您授权后进行。请勿向任何人提供永久访问密码，仅在确认本次服务后分享一次性密码。</p>
+                <ol class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm text-[#1D1D1F]/80 dark:text-[#F5F5F7]/80">
+                    <li class="flex gap-2"><span class="text-appleBlue font-bold">01</span><span data-i18n="remoteStep1">下载并运行 RustDesk。</span></li>
+                    <li class="flex gap-2"><span class="text-appleBlue font-bold">02</span><span data-i18n="remoteStep2">将设备 ID 和一次性密码提供给工程师。</span></li>
+                    <li class="flex gap-2"><span class="text-appleBlue font-bold">03</span><span data-i18n="remoteStep3">确认连接请求，开始远程维修。</span></li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 3. 预约上门与快速联系表单（与上方网格同宽对齐） ==================== -->
+    <section id="booking" class="max-w-5xl mx-auto px-6 py-20">
+        <div class="rounded-3xl p-8 sm:p-12 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 shadow-sm">
+            <div class="text-center max-w-xl mx-auto mb-10">
+                <p data-i18n="tagBooking" class="text-xs font-semibold uppercase tracking-[0.2em] text-appleBlue mb-2">Book An Appointment</p>
+                <h2 data-i18n="bookingTitle" class="text-3xl sm:text-4xl font-bold tracking-tight mb-3">预约上门技术支持</h2>
+                <p data-i18n="bookingSub" class="text-sm sm:text-base text-[#6E6E73] dark:text-[#86868B]">
+                    填写以下信息，Danny 将尽快联系您，确认服务范围、预估工时与安排。
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <!-- 预约提交表单 -->
+                <form id="booking-form" class="space-y-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <!-- 姓名 -->
+                            <label for="client-name" data-i18n="labelName"
+                                class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] dark:text-[#86868B] mb-2">
+                                您的称呼 *
+                            </label>
+                            <input type="text" id="client-name" name="Customer name" autocomplete="name" data-i18n-placeholder="phName" required placeholder="例如：张先生 / Ms. Li"
+                                class="w-full h-12 px-4 rounded-2xl bg-white dark:bg-black border border-black/10 dark:border-white/15 text-sm focus:outline-none focus:border-appleBlue transition-colors">
+                        </div>
+                        <div>
+                            <!-- 电话 -->
+                            <label for="client-contact" data-i18n="labelPhone"
+                                class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] dark:text-[#86868B] mb-2">
+                                联系电话 *
+                            </label>
+                            <input type="tel" id="client-contact" name="Phone number" autocomplete="tel" data-i18n-placeholder="phPhone" required placeholder="例如：(626) xxx-xxxx"
+                                class="w-full h-12 px-4 rounded-2xl bg-white dark:bg-black border border-black/10 dark:border-white/15 text-sm focus:outline-none focus:border-appleBlue transition-colors">
+                        </div>
+                    </div>
+                    <div>
+                        <!-- 邮箱 -->
+                        <label for="client-email" data-i18n="labelEmail"
+                            class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] dark:text-[#86868B] mb-2">
+                            电子邮箱（选填）
+                        </label>
+                        <input type="email" id="client-email" name="_replyto" autocomplete="email" data-i18n-placeholder="phEmail" placeholder="用于接收预约回复（选填）"
+                            class="w-full h-12 px-4 rounded-2xl bg-white dark:bg-black border border-black/10 dark:border-white/15 text-sm focus:outline-none focus:border-appleBlue transition-colors">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <!-- 服务类型 -->
+                            <label for="service-type" data-i18n="labelService"
+                                class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] dark:text-[#86868B] mb-2">
+                                服务类型
+                            </label>
+                            <select id="service-type" name="Service type"
+                                class="w-full h-12 px-4 rounded-2xl bg-white dark:bg-black border border-black/10 dark:border-white/15 text-sm focus:outline-none focus:border-appleBlue transition-colors">
+                                <option value="repair" data-i18n="optRepair">电脑维修与系统故障排查</option>
+                                <option value="consult" data-i18n="optConsult">购买电脑建议 / 专属装机</option>
+                                <option value="network" data-i18n="optNetwork">家庭 / 办公室网络维修调优</option>
+                                <option value="recovery" data-i18n="optRecovery">数据恢复 / 硬盘升级</option>
+                            </select>
+                        </div>
+                        <div>
+                            <!-- 城市 -->
+                            <label for="client-city" data-i18n="labelCity"
+                                class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] dark:text-[#86868B] mb-2">
+                                所在城市 (洛杉矶地区)
+                            </label>
+                            <input type="text" id="client-city" name="City" autocomplete="address-level2" data-i18n-placeholder="phCity" placeholder="例如：Monterey Park / Arcadia / Irvine"
+                                class="w-full h-12 px-4 rounded-2xl bg-white dark:bg-black border border-black/10 dark:border-white/15 text-sm focus:outline-none focus:border-appleBlue transition-colors">
+                        </div>
+                    </div>
+
+                    <div>
+                        <!-- 问题描述 -->
+                        <label for="client-desc" data-i18n="labelDesc"
+                            class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] dark:text-[#86868B] mb-2">
+                            设备型号与问题描述
+                        </label>
+                        <textarea id="client-desc" name="Issue description" rows="3" data-i18n-placeholder="phDesc" placeholder="请简述您的电脑品牌型号、遇到的具体问题或购买/网络需求..."
+                            class="w-full p-4 rounded-2xl bg-white dark:bg-black border border-black/10 dark:border-white/15 text-sm focus:outline-none focus:border-appleBlue transition-colors"></textarea>
+                    </div>
+
+                    <div class="honeypot-field" aria-hidden="true">
+                        <label for="company-website">Leave this field empty</label>
+                        <input type="text" id="company-website" name="_honey" tabindex="-1" autocomplete="off">
+                    </div>
+                    <input type="hidden" name="_subject" value="New appointment request — DannyComputer2008">
+                    <input type="hidden" name="_template" value="table">
+                    <p id="form-status" class="text-sm text-center" role="status" aria-live="polite"></p>
+                    <button type="submit" data-i18n="submitBtn"
+                        class="w-full py-4 rounded-full bg-appleBlue hover:bg-appleBlueHover text-white font-semibold text-base tracking-wide shadow-lg shadow-appleBlue/20 transition-all duration-200 active:scale-[0.99]">
+                        提交预约请求
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="privacy" class="max-w-5xl mx-auto px-6 pb-16">
+        <div class="border-t border-black/5 dark:border-white/10 pt-8 flex flex-col sm:flex-row justify-between gap-5 text-xs text-[#6E6E73] dark:text-[#86868B]">
+            <div class="max-w-2xl">
+                <h2 data-i18n="privacyTitle" class="font-semibold text-sm text-[#1D1D1F] dark:text-[#F5F5F7] mb-2">隐私说明</h2>
+                <p data-i18n="privacyText" class="leading-relaxed">您提交的姓名, 电话, 电子邮箱, 所在城市及服务需求, 仅用于回复咨询、安排服务和提供报价。表单通过 FormSubmit 第三方邮件服务传送至 DannyComputer2008, 该服务会暂存提交记录（官方说明为 30 天）。请勿填写密码、支付信息或其他敏感资料。我们不会出售您的联系信息。</p>
+            </div>
+            <div class="flex flex-col gap-2 sm:text-right shrink-0">
+                <a id="phone-link" href="#" class="hidden text-appleBlue hover:underline" data-i18n="callUs">电话联系</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 自定义轻量提示框 (替代 alert) -->
+    <div id="toast-box" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-300 translate-y-4">
+        <div class="px-6 py-3 rounded-full bg-[#1D1D1F] dark:bg-white text-white dark:text-[#1D1D1F] text-sm font-medium shadow-xl flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-appleBlue"></i>
+            <span id="toast-message">操作成功</span>
+        </div>
+    </div>
+
+    <!-- ==================== 交互、浏览器语言自动适配与昼夜主题逻辑 ==================== -->
+    <script>
+        // 0. 中英双语词典与浏览器首选语言自动检测
+        const i18nDict = {
+            zh: {
+                pageTitle: 'DannyComputer2008 · 洛杉矶专业 IT 技术服务',
+                pageDescription: 'DannyComputer2008 为大洛杉矶家庭与中小企业提供电脑维修、网络维护、企业 IT 基础设施支持及远程技术服务。20+ 年实战经验。',
+                badge: '始于 2008 洛杉矶 · 20+ 年 IT 实战经验',
+                heroTitle1: '让每一台电脑',
+                heroTitle2: '正常工作',
+                heroSub: '从电脑选购到网络调优，按需解决您的每一项技术难题<br class="hidden sm:inline">透明、高效、可靠，让专业服务省心一步',
+                heroBtn: '预约上门',
+                tagCoreServices: '核心服务',
+                servicesTitle: '专业电脑、网络与企业 IT 服务',
+                servicesSub: '大洛杉矶地区上门 & 远程极速响应',
+                card1Title: '硬件维修与故障排查',
+                card1Desc: '精准定位不开机、蓝屏死机、过热降频、硬盘损坏及进水故障。支持 Windows 台式机、笔记本及 Mac 全系硬件升级与更换。',
+                card1Item1: '固态硬盘无损迁移与扩容',
+                card1Item2: '深度清灰散热硅脂更换',
+                card1Item3: '误删文件与故障盘数据恢复',
+                card2Title: '电脑选购与专属装机',
+                card2Desc: '拒绝参数冗余与消费陷阱。根据您的日常办公、跨境电商、剪辑渲染或游戏预算，提供客观选购清单或一对一手工装机调优。',
+                card2Item1: '品牌机 / Mac 购买避坑指导',
+                card2Item2: '静音办公与高性能主机定制',
+                card2Item3: '新机开箱初始化与软件部署',
+                card3Title: '家庭与办公网络调优',
+                card3Desc: '告别 Wi-Fi 死角、掉线与视频卡顿。针对洛杉矶大户型住宅、仓库与办公室提供全屋 Mesh 组网、布线排查及打印机共享配置。',
+                card3Item1: '全屋 Wi-Fi 6/7 无缝漫游覆盖',
+                card3Item2: '无线打印机 / NAS 私有云配置',
+                card3Item3: '病毒木马清理与系统加速优化',
+                card4Title: '企业 IT 基础设施与运维',
+                card4Desc: '为中小企业维护稳定、安全、易管理的 IT 环境，减少停机与日常运维负担。',
+                card4Item1: 'Windows Server 部署与维护',
+                card4Item2: '企业路由器、交换机与网络配置',
+                card4Item3: 'NAS、文件共享与备份系统',
+                card4Item4: '办公室 IT 设备与故障支持',
+                tagTransparentPricing: '透明定价',
+                pricingRate: '$80/小时',
+                pricingTitle: '预估工时封顶，修不好不收费',
+                pricingDesc: '服务按 $80/小时计费，维修前先评估并确认预计工时与人工费用。实际人工费用不超过事先确认的预估金额；若无法修复，不收取维修人工费。配件由客户自行购买，也可委托我代购，费用另行确认。无隐形收费。',
+                stat1Label: '洛杉矶本地创立至今',
+                stat2Num: '20+ 年',
+                stat2Label: 'IT 实战经验',
+                langSupport: '支持普通话 / 英语',
+                areaBadge: '大洛杉矶上门服务',
+                tagRemoteSupport: '远程协助',
+                remoteTitle: '下载 RustDesk，一键开启远程协助',
+                remoteDesc: '软件故障、系统设置与网络问题，可先通过远程方式排查。下载并运行后，按下方步骤发起连接。',
+                remoteSecurity: '远程连接仅在您授权后进行。请勿向任何人提供永久访问密码，仅在确认本次服务后分享一次性密码。',
+                remoteStep1: '下载并运行 RustDesk。',
+                remoteStep2: '将设备 ID 和一次性密码提供给工程师。',
+                remoteStep3: '确认连接请求，开始远程维修。',
+                btnWinDownload: '下载 Windows 版',
+                btnMacDownload: '下载 macOS 版',
+                tagBooking: '预约上门',
+                bookingTitle: '预约上门技术支持',
+                bookingSub: '填写以下信息，Danny 将尽快联系您，确认服务范围、预估工时与安排。',
+                labelName: '您的称呼 *',
+                phName: '例如：张先生 / Ms. Li',
+                labelPhone: '联系电话 *',
+                labelEmail: '电子邮箱（选填）',
+                phEmail: '用于接收预约回复（选填）',
+                phPhone: '例如：(626) xxx-xxxx',
+                labelService: '服务类型',
+                optRepair: '电脑维修与系统故障排查',
+                optConsult: '购买电脑建议 / 专属装机',
+                optNetwork: '家庭 / 办公室网络维修调优',
+                optRecovery: '数据恢复 / 硬盘升级',
+                labelCity: '所在城市 (洛杉矶地区)',
+                phCity: '例如：Monterey Park / Arcadia / Irvine',
+                labelDesc: '设备型号与问题描述',
+                phDesc: '请简述您的电脑品牌型号、遇到的具体问题或购买/网络需求...',
+                submitBtn: '提交预约请求',
+                privacyTitle: '隐私说明',
+                privacyText: '您提交的姓名、电话、电子邮箱、所在城市及服务需求，仅用于回复咨询、安排服务和提供报价。表单通过 FormSubmit 第三方邮件服务传送至 DannyComputer2008，该服务会暂存提交记录（官方说明为 30 天）。请勿填写密码、支付信息或其他敏感资料。我们不会出售您的联系信息。',
+                callUs: '电话联系',
+                ariaSwitchToLight: '切换浅色主题',
+                ariaSwitchToDark: '切换深色主题',
+                ariaSwitchLang: 'Switch to English',
+                sending: '正在提交…',
+                sendSuccess: '提交成功！Danny 将尽快与您联系。',
+                sendError: '提交失败，请稍后重试，或直接发送邮件联系我们。',
+                toastDefault: '操作成功',
+                toastValidation: '请填写您的称呼与联系电话',
+                toastSubmit: (name) => `感谢 ${name}，您的预约已登记，丹尼工程师将尽快联系您！`
+            },
+            en: {
+                pageTitle: 'DannyComputer2008 · Professional IT Support in Los Angeles',
+                pageDescription: 'Computer repair, network support, business IT infrastructure, and remote technical services for homes and small businesses across Greater Los Angeles. 20+ years of hands-on experience.',
+                badge: 'Est. 2008 · 20+ Years of Hands-On IT Experience',
+                heroTitle1: 'Make Every Computer',
+                heroTitle2: 'Work Properly',
+                heroSub: 'From smart buying advice to network optimization, tailored solutions for every tech challenge<br class="hidden sm:inline">Transparent, efficient, and reliable service made effortless',
+                heroBtn: 'Book On-Site Service',
+                tagCoreServices: 'Core Services',
+                servicesTitle: 'Professional Computer, Network & Business IT Support',
+                servicesSub: 'Greater Los Angeles On-Site & Rapid Remote Response',
+                card1Title: 'Hardware Repair & Diagnostics',
+                card1Desc: 'Pinpoint no-boot issues, BSOD crashes, overheating, drive failures, and liquid damage. Full hardware upgrades for Windows PCs, laptops, and Macs.',
+                card1Item1: 'Lossless SSD Migration & Storage Upgrade',
+                card1Item2: 'Deep Dust Cleaning & Thermal Paste Replacement',
+                card1Item3: 'Deleted File & Failing Drive Data Recovery',
+                card2Title: 'Buying Advice & Custom Builds',
+                card2Desc: 'No overspending on unnecessary specs. Objective buying recommendations or 1-on-1 custom PC builds tailored for office work, e-commerce, editing, or gaming.',
+                card2Item1: 'Unbiased Pre-built PC & Mac Buying Guidance',
+                card2Item2: 'Silent Office & High-Performance Custom Rigs',
+                card2Item3: 'New System Setup & Software Deployment',
+                card3Title: 'Home & Office Network Tuning',
+                card3Desc: 'Eliminate Wi-Fi dead zones, dropouts, and lag. Whole-home Mesh Wi-Fi setup, wiring troubleshooting, and shared printer config for LA homes and offices.',
+                card3Item1: 'Seamless Whole-Home Wi-Fi 6/7 Mesh Coverage',
+                card3Item2: 'Wireless Printer & NAS Private Cloud Setup',
+                card3Item3: 'Malware Removal & System Speed Optimization',
+                card4Title: 'Business IT Infrastructure & Support',
+                card4Desc: 'Reliable, secure, and manageable IT support for small businesses—built to reduce downtime and daily IT overhead.',
+                card4Item1: 'Windows Server Deployment & Maintenance',
+                card4Item2: 'Business Routers, Switches & Network Setup',
+                card4Item3: 'NAS, File Sharing & Backup Systems',
+                card4Item4: 'Small Office IT & Troubleshooting',
+                tagTransparentPricing: 'Transparent Pricing',
+                pricingRate: '$80/hr',
+                pricingTitle: 'Capped Hourly Estimate, No Fix No Fee',
+                pricingDesc: 'Billed at $80/hr. I assess the issue and confirm the labor estimate before work begins. Labor will not exceed the agreed estimate; if the issue cannot be fixed, no labor fee is charged. You may purchase parts yourself or ask me to source them. Parts are quoted separately. No hidden fees.',
+                stat1Label: 'Serving Los Angeles Since',
+                stat2Num: '20+ Yrs',
+                stat2Label: 'Hands-On IT Experience',
+                langSupport: 'English & Mandarin Support',
+                areaBadge: 'Greater LA On-Site',
+                tagRemoteSupport: 'Remote Support',
+                remoteTitle: 'Download RustDesk for Instant Remote Support',
+                remoteDesc: 'Start with a remote assessment for software, system, and network issues. Download and run RustDesk, then follow the steps below to connect.',
+                remoteSecurity: 'Remote access starts only with your permission. Never share a permanent access password; share a one-time password only after confirming the service.',
+                remoteStep1: 'Download and run RustDesk.',
+                remoteStep2: 'Send your device ID and one-time password to the engineer.',
+                remoteStep3: 'Approve the connection request to begin support.',
+                btnWinDownload: 'Download for Windows',
+                btnMacDownload: 'Download for macOS',
+                tagBooking: 'Book An Appointment',
+                bookingTitle: 'Book On-Site Tech Support',
+                bookingSub: 'Tell me what you need and where you are. I’ll follow up to confirm the scope, estimate, and scheduling.',
+                labelName: 'Your Name *',
+                phName: 'e.g., Alex Chen / Ms. Li',
+                labelPhone: 'Phone Number *',
+                labelEmail: 'Email (Optional)',
+                phEmail: 'For appointment updates (optional)',
+                phPhone: 'e.g., (626) xxx-xxxx',
+                labelService: 'Service Type',
+                optRepair: 'Computer Repair & System Troubleshooting',
+                optConsult: 'Computer Buying Advice / Custom Build',
+                optNetwork: 'Home / Office Network Optimization',
+                optRecovery: 'Data Recovery / SSD Upgrade',
+                labelCity: 'City (Greater Los Angeles)',
+                phCity: 'e.g., Monterey Park / Arcadia / Irvine',
+                labelDesc: 'Device Model & Issue Description',
+                phDesc: 'Briefly describe your device model, issue, or buying/network needs...',
+                submitBtn: 'Submit Appointment Request',
+                privacyTitle: 'Privacy',
+                privacyText: 'Your name, phone number, email, city, and service details are used only to respond to your inquiry, arrange service, and prepare an estimate. This form is delivered to DannyComputer2008 through the third-party FormSubmit email service, which states that submissions are retained for 30 days. Do not submit passwords, payment details, or other sensitive information. Your contact information is not sold.',
+                callUs: 'Call',
+                ariaSwitchToLight: 'Switch to light theme',
+                ariaSwitchToDark: 'Switch to dark theme',
+                ariaSwitchLang: '切换为中文',
+                sending: 'Submitting…',
+                sendSuccess: 'Request sent. Danny will contact you shortly.',
+                sendError: 'Submission failed. Please try again or email us directly.',
+                toastDefault: 'Success',
+                toastValidation: 'Please enter your name and phone number',
+                toastSubmit: (name) => `Thank you, ${name}! Your request is received and Danny will reach out shortly.`
+            }
+        };
+
+        let currentLang = 'zh';
+        let currentStatusKey = ''; 
+        let isSubmittingForm = false;
+
+        function safeStorageGet(key) {
+            try {
+                return window.localStorage.getItem(key);
+            } catch (error) {
+                console.warn('localStorage read unavailable:', error);
+                return null;
+            }
+        }
+
+        function safeStorageSet(key, value) {
+            try {
+                window.localStorage.setItem(key, value);
+                return true;
+            } catch (error) {
+                console.warn('localStorage write unavailable:', error);
+                return false;
+            }
+        }
+
+        function updateThemeButtonAria() {
+            const button = document.getElementById('theme-toggle');
+            if (!button) return;
+            const night = document.documentElement.classList.contains('dark');
+            const dict = i18nDict[currentLang];
+            button.setAttribute('aria-label', night ? dict.ariaSwitchToLight : dict.ariaSwitchToDark);
+        }
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            const dict = i18nDict[currentLang];
+            document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
+            document.title = dict.pageTitle;
+            const description = document.querySelector('meta[name="description"]');
+            if (description && dict.pageDescription) description.setAttribute('content', dict.pageDescription);
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (isSubmittingForm && key === 'submitBtn') return;
+                if (dict[key] !== undefined && typeof dict[key] !== 'function') el.textContent = dict[key];
+            });
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                if (dict[key]) el.innerHTML = dict[key];
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (dict[key]) el.setAttribute('placeholder', dict[key]);
+            });
+
+            const langButton = document.getElementById('lang-toggle');
+            if (langButton) {
+                langButton.textContent = currentLang === 'zh' ? 'English' : '中文';
+                langButton.setAttribute('aria-label', dict.ariaSwitchLang);
+            }
+
+            updateThemeButtonAria();
+
+            if (isSubmittingForm) {
+                const submitBtn = document.querySelector('#booking-form button[type="submit"]');
+                if (submitBtn) submitBtn.textContent = dict.sending;
+            }
+
+            const statusEl = document.getElementById('form-status');
+            if (statusEl && currentStatusKey && dict[currentStatusKey]) {
+                statusEl.textContent = dict[currentStatusKey];
+            }
+        }
+
+        function applyBrowserLanguage() {
+            const saved = safeStorageGet('dc2008-language');
+            const browserLang = (
+                navigator.language ||
+                navigator.userLanguage ||
+                'zh'
+            ).toLowerCase();
+
+            applyLanguage(
+                saved || (browserLang.startsWith('zh') ? 'zh' : 'en')
+            );
+        }
+        applyBrowserLanguage();
+
+        document.getElementById('lang-toggle')?.addEventListener('click', () => {
+            const next = currentLang === 'zh' ? 'en' : 'zh';
+            safeStorageSet('dc2008-language', next);
+            applyLanguage(next);
+        });
+
+        function applyTheme(mode) {
+            const night = mode === 'dark';
+            document.documentElement.classList.toggle('dark', night);
+            const button = document.getElementById('theme-toggle');
+            if (button) {
+                button.innerHTML = night ? '<i data-lucide="sun" class="w-4 h-4"></i>' : '<i data-lucide="moon" class="w-4 h-4"></i>';
+                updateThemeButtonAria();
+                if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+            }
+        }
+        const savedTheme = safeStorageGet('dc2008-theme');
+        const initialHour = new Date().getHours();
+
+        applyTheme(
+            savedTheme ||
+            (initialHour < 6 || initialHour >= 18 ? 'dark' : 'light')
+        );
+
+        document.getElementById('theme-toggle')?.addEventListener('click', () => {
+            const next = document.documentElement.classList.contains('dark')
+                ? 'light'
+                : 'dark';
+
+            safeStorageSet('dc2008-theme', next);
+            applyTheme(next);
+        });
+
+        function initIcons() {
+            if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                lucide.createIcons();
+            }
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initIcons);
+        } else {
+            initIcons();
+        }
+        window.addEventListener('load', initIcons);
+
+        let toastTimer;
+        function showToast(msg) {
+            const toast = document.getElementById('toast-box');
+            const msgEl = document.getElementById('toast-message');
+            if (!toast || !msgEl) return;
+            msgEl.textContent = msg || i18nDict[currentLang].toastDefault;
+            toast.classList.remove('opacity-0', 'translate-y-4');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-4');
+            }, 3200);
+        }
+
+        const bookingForm = document.getElementById('booking-form');
+        if (bookingForm) {
+            bookingForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                const dict = i18nDict[currentLang];
+                const name = document.getElementById('client-name').value.trim();
+                const contact = document.getElementById('client-contact').value.trim();
+                const status = document.getElementById('form-status');
+                const submitButton = bookingForm.querySelector('button[type="submit"]');
+                if (!name || !contact) {
+                    currentStatusKey = 'toastValidation';
+                    status.textContent = dict.toastValidation;
+                    status.className = 'text-sm text-center text-red-600';
+                    return;
+                }
+                if (document.getElementById('company-website').value.trim()) return;
+                isSubmittingForm = true;
+                currentStatusKey = '';
+                submitButton.disabled = true;
+                submitButton.classList.add('opacity-60', 'cursor-not-allowed');
+                submitButton.textContent = dict.sending;
+                status.textContent = '';
+                try {
+                    const formData = new FormData(bookingForm);
+                    const payload = Object.fromEntries(formData.entries());
+                    const response = await fetch('https://formsubmit.co/ajax/DANNYCOMPUTER2008@GMAIL.COM', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const result = await response.json();
+                    const ok = response.ok && (result.success === true || result.success === 'true');
+                    if (!ok) throw new Error(result.message || 'Email delivery service rejected the request');
+                    bookingForm.reset();
+                    currentStatusKey = 'sendSuccess';
+                    status.textContent = i18nDict[currentLang].sendSuccess;
+                    status.className = 'text-sm text-center text-green-700 dark:text-green-400';
+                    showToast(i18nDict[currentLang].sendSuccess);
+                } catch (error) {
+                    currentStatusKey = 'sendError';
+                    status.textContent = i18nDict[currentLang].sendError;
+                    status.className = 'text-sm text-center text-red-600';
+                    showToast(i18nDict[currentLang].sendError);
+                    console.error('Appointment form submission failed:', error);
+                } finally {
+                    isSubmittingForm = false;
+                    submitButton.disabled = false;
+                    submitButton.classList.remove('opacity-60', 'cursor-not-allowed');
+                    submitButton.textContent = i18nDict[currentLang].submitBtn;
+                }
+            });
+        }
+
+        function initScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-up');
+
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                elements.forEach(el => el.classList.add('visible'));
+                return;
+            }
+
+            if (!('IntersectionObserver' in window)) {
+                elements.forEach(el => el.classList.add('visible'));
+                return;
+            }
+
+            let observer;
+
+            try {
+                observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+
+                document.documentElement.classList.add('js-motion');
+
+                elements.forEach(el => observer.observe(el));
+
+            } catch (error) {
+                console.warn('Scroll animation unavailable:', error);
+
+                if (observer) {
+                    observer.disconnect();
+                }
+
+                document.documentElement.classList.remove('js-motion');
+
+                elements.forEach(el => {
+                    el.classList.add('visible');
+                });
+            }
+        }
+
+        initScrollAnimations();
+
+        const BUSINESS_PHONE = '';
+        if (BUSINESS_PHONE) {
+            const phoneLink = document.getElementById('phone-link');
+            phoneLink.href = `tel:${BUSINESS_PHONE.replace(/[^+\d]/g, '')}`;
+            phoneLink.textContent += ` · ${BUSINESS_PHONE}`;
+            phoneLink.classList.remove('hidden');
+        }
+    </script>
 </body>
 </html>
