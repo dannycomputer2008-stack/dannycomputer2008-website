@@ -145,7 +145,7 @@
             </p>
         </div>
 
-        <!-- 四项核心服务 2x2 对齐网格（桌面端两两并排，卡片宽敞工整，与上下所有板块左右严格对齐） -->
+        <!-- 五项核心服务（前四项 2x2，第五项横跨两列） 对齐网格（桌面端两两并排，卡片宽敞工整，与上下所有板块左右严格对齐） -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
             <!-- 卡片 1：电脑维修与系统救援 -->
             <div class="bento-card fade-up rounded-3xl p-8 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between h-full">
@@ -215,6 +215,22 @@
                     <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0 mt-0.5"></i><span data-i18n="card4Item2">企业路由器、交换机与网络配置</span></li>
                     <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0 mt-0.5"></i><span data-i18n="card4Item3">NAS、文件共享与备份系统</span></li>
                     <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0 mt-0.5"></i><span data-i18n="card4Item4">办公室 IT 设备与故障支持</span></li>
+                </ul>
+            </div>
+
+            <!-- 卡片 5：网站和APP制作（桌面端横跨两列） -->
+            <div class="bento-card fade-up md:col-span-2 rounded-3xl p-8 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between h-full md:flex-row md:items-center md:justify-between md:gap-12">
+                <div class="md:flex-1">
+                    <div class="w-12 h-12 rounded-2xl bg-appleBlue/10 text-appleBlue flex items-center justify-center mb-6">
+                        <i data-lucide="code" class="w-6 h-6"></i>
+                    </div>
+                    <h3 data-i18n="card5Title" class="text-xl sm:text-2xl font-bold mb-3 tracking-tight">网站和APP制作</h3>
+                    <p data-i18n="card5Desc" class="text-sm text-[#6E6E73] dark:text-[#86868B] leading-relaxed mb-6 md:mb-0">为个人与中小企业量身制作网站和手机 APP，从设计、开发到上线与后续维护一站完成。</p>
+                </div>
+                <ul class="space-y-3 text-sm font-medium text-[#1D1D1F]/85 dark:text-[#F5F5F7]/85 border-t border-black/5 dark:border-white/10 pt-5 md:border-t-0 md:border-l md:pt-0 md:pl-10 md:flex-1">
+                    <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0 mt-0.5"></i><span data-i18n="card5Item1">企业官网、展示页与预约系统</span></li>
+                    <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0 mt-0.5"></i><span data-i18n="card5Item2">iOS / Android 手机 APP 开发</span></li>
+                    <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0 mt-0.5"></i><span data-i18n="card5Item3">域名、托管与上线后维护</span></li>
                 </ul>
             </div>
         </div>
@@ -378,6 +394,7 @@
                                 <option value="consult" data-i18n="optConsult">购买电脑建议 / 专属装机</option>
                                 <option value="network" data-i18n="optNetwork">家庭 / 办公室网络维修调优</option>
                                 <option value="recovery" data-i18n="optRecovery">数据恢复 / 硬盘升级</option>
+                            <option value="web" data-i18n="optWeb">网站 / APP 制作</option>
                             </select>
                         </div>
                         <div>
@@ -473,6 +490,11 @@
                 card4Item2: '企业路由器、交换机与网络配置',
                 card4Item3: 'NAS、文件共享与备份系统',
                 card4Item4: '办公室 IT 设备与故障支持',
+                card5Title: '网站和APP制作',
+                card5Desc: '为个人与中小企业量身制作网站和手机 APP，从设计、开发到上线与后续维护一站完成。',
+                card5Item1: '企业官网、展示页与预约系统',
+                card5Item2: 'iOS / Android 手机 APP 开发',
+                card5Item3: '域名、托管与上线后维护',
                 tagTransparentPricing: '透明定价',
                 pricingRate: '$80/小时',
                 pricingTitle: '预估工时封顶，修不好不收费',
@@ -508,6 +530,7 @@
                 optConsult: '购买电脑建议 / 专属装机',
                 optNetwork: '家庭 / 办公室网络维修调优',
                 optRecovery: '数据恢复 / 硬盘升级',
+                optWeb: '网站 / APP 制作',
                 labelCity: '所在城市 (洛杉矶地区)',
                 phCity: '例如：Monterey Park / Arcadia / Irvine',
                 labelDesc: '设备型号与问题描述',
@@ -558,6 +581,11 @@
                 card4Item2: 'Business Routers, Switches & Network Setup',
                 card4Item3: 'NAS, File Sharing & Backup Systems',
                 card4Item4: 'Small Office IT & Troubleshooting',
+                card5Title: 'Website & App Development',
+                card5Desc: 'Custom websites and mobile apps for individuals and small businesses—from design and development to launch and ongoing maintenance.',
+                card5Item1: 'Business Websites, Landing Pages & Booking Systems',
+                card5Item2: 'iOS / Android Mobile App Development',
+                card5Item3: 'Domain, Hosting & Post-Launch Maintenance',
                 tagTransparentPricing: 'Transparent Pricing',
                 pricingRate: '$80/hr',
                 pricingTitle: 'Capped Hourly Estimate, No Fix No Fee',
@@ -593,6 +621,7 @@
                 optConsult: 'Computer Buying Advice / Custom Build',
                 optNetwork: 'Home / Office Network Optimization',
                 optRecovery: 'Data Recovery / SSD Upgrade',
+                optWeb: 'Website / App Development',
                 labelCity: 'City (Greater Los Angeles)',
                 phCity: 'e.g., Monterey Park / Arcadia / Irvine',
                 labelDesc: 'Device Model & Issue Description',
