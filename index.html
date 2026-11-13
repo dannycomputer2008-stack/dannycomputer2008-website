@@ -170,11 +170,13 @@
         html[lang="en"] .optical-center-sub {
             left: 0;
         }
+        /* 英文副标题较长：均衡换行，避免末行只剩一两个单词 */
+        html[lang="en"] .optical-center-sub { text-wrap: balance; max-width: 48rem; }
             /* 键盘可访问性：键盘导航时显示清晰的焦点框（鼠标点击按钮不会出现；输入框获得焦点时始终显示） */
         :focus-visible { outline: 2px solid #0071E3 !important; outline-offset: 3px !important; }
         .dark :focus-visible { outline-color: #2997FF !important; }
             html.i18n-pending body { visibility: hidden; }
-    </style>
+        </style>
 </head>
 <body class="bg-white text-[#1D1D1F] dark:bg-black dark:text-[#F5F5F7] selection:bg-appleBlue selection:text-white">
 
@@ -200,7 +202,7 @@
             <div class="w-full text-center mb-7">
                 <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.15]">
                     <span class="optical-center-heading">
-                        <span data-i18n="heroTitle1">让每一台电脑</span><br>
+                        <span data-i18n="heroTitle1">让电脑</span><br>
                         <span data-i18n="heroTitle2" class="text-appleBlue">正常工作</span>
                     </span>
                 </h1>
@@ -209,7 +211,7 @@
             <!-- 核心服务说明副标题 -->
             <div class="w-full text-center mb-11">
                 <p class="optical-center-sub max-w-2xl mx-auto text-base sm:text-xl text-[#6E6E73] dark:text-[#86868B] font-normal leading-relaxed">
-                    <span data-i18n-html="heroSub">从电脑选购到网络调优，按需解决您的每一项技术难题<br class="hidden sm:inline">透明、高效、可靠，让专业服务省心一步</span>
+                    <span data-i18n-html="heroSub">从电脑选购到网络调优，<span style="display:inline-block">按需解决您的每一项技术难题</span><br>透明、高效、可靠，专业服务让您更省心</span>
                 </p>
             </div>
 
@@ -567,7 +569,6 @@
         </div>
         <div class="mt-8 pt-8 border-t border-black/5 dark:border-white/10 flex flex-col sm:flex-row justify-between gap-2 text-xs text-[#6E6E73] dark:text-[#86868B]">
             <span>© 2008–<span id="footer-year">2026</span> DannyComputer2008</span>
-            <span data-i18n="areaBadge">大洛杉矶上门服务</span>
         </div>
     </footer>
     <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
@@ -593,9 +594,9 @@
                 pageTitle: 'DannyComputer2008 · 洛杉矶专业 IT 技术服务',
                 pageDescription: 'DannyComputer2008 为大洛杉矶家庭与中小企业提供电脑维修、网络维护、企业 IT 基础设施支持及远程技术服务。20+ 年实战经验。',
                 badge: '始于 2008 洛杉矶 · 20+ 年 IT 实战经验',
-                heroTitle1: '让每一台电脑',
+                heroTitle1: '让电脑',
                 heroTitle2: '正常工作',
-                heroSub: '从电脑选购到网络调优，按需解决您的每一项技术难题<br class="hidden sm:inline">透明、高效、可靠，让专业服务省心一步',
+                heroSub: '从电脑选购到网络调优，<span style="display:inline-block">按需解决您的每一项技术难题</span><br>透明、高效、可靠，专业服务让您更省心',
                 heroBtn: '预约上门',
                 tagCoreServices: '核心服务',
                 servicesTitle: '专业电脑、网络与企业 IT 服务',
@@ -692,9 +693,9 @@
                 pageTitle: 'DannyComputer2008 · Professional IT Support in Los Angeles',
                 pageDescription: 'Computer repair, network support, business IT infrastructure, and remote technical services for homes and small businesses across Greater Los Angeles. 20+ years of hands-on experience.',
                 badge: 'Est. 2008 · 20+ Years of Hands-On IT Experience',
-                heroTitle1: 'Make Every Computer',
-                heroTitle2: 'Work Properly',
-                heroSub: 'From smart buying advice to network optimization, tailored solutions for every tech challenge<br class="hidden sm:inline">Transparent, efficient, and reliable service made effortless',
+                heroTitle1: 'Get Your Computer',
+                heroTitle2: 'Working Properly',
+                heroSub: 'From smart buying advice to network optimization, tailored solutions for every tech challenge.<br class="hidden sm:inline"> Transparent, efficient, reliable—professional service for your peace of mind.',
                 heroBtn: 'Book On-Site Service',
                 tagCoreServices: 'Core Services',
                 servicesTitle: 'Professional Computer, Network & Business IT Support',
