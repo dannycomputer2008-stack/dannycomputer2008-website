@@ -153,6 +153,9 @@
         html[lang="en"] .optical-center-sub {
             left: 0;
         }
+            /* 键盘可访问性：键盘导航时显示清晰的焦点框（鼠标点击按钮不会出现；输入框获得焦点时始终显示） */
+        :focus-visible { outline: 2px solid #0071E3 !important; outline-offset: 3px !important; }
+        .dark :focus-visible { outline-color: #2997FF !important; }
     </style>
 </head>
 <body class="bg-white text-[#1D1D1F] dark:bg-black dark:text-[#F5F5F7] selection:bg-appleBlue selection:text-white">
@@ -917,7 +920,7 @@
                 if (!name || !contact) {
                     currentStatusKey = 'toastValidation';
                     status.textContent = dict.toastValidation;
-                    status.className = 'text-sm text-center text-red-600';
+                    status.className = 'text-sm text-center text-red-600 dark:text-red-400';
                     return;
                 }
                 if (document.getElementById('company-website').value.trim()) return;
@@ -946,7 +949,7 @@
                 } catch (error) {
                     currentStatusKey = 'sendError';
                     status.textContent = i18nDict[currentLang].sendError;
-                    status.className = 'text-sm text-center text-red-600';
+                    status.className = 'text-sm text-center text-red-600 dark:text-red-400';
                     showToast(i18nDict[currentLang].sendError);
                     console.error('Appointment form submission failed:', error);
                 } finally {
