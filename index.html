@@ -7,6 +7,23 @@
     <meta name="description" content="DannyComputer2008 为大洛杉矶家庭与中小企业提供专业电脑维修、网络维护、企业 IT 基础设施支持及远程技术服务。始于 2008 年，20+ 年实战经验。">
     <meta name="robots" content="index,follow">
     <meta name="theme-color" content="#F5F5F7">
+    <!-- 首屏前预设主题与语言，避免页面闪烁：优先用户手动选择，其次跟随系统深色模式与浏览器语言 -->
+    <script>
+        (function () {
+            try {
+                var d = document.documentElement, theme = null, lang = null;
+                try { theme = localStorage.getItem('dc2008-theme'); lang = localStorage.getItem('dc2008-language'); } catch (e) {}
+                var dark = theme ? theme === 'dark' : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                if (dark) d.classList.add('dark');
+                lang = lang || (((navigator.language || 'zh').toLowerCase().indexOf('zh') === 0) ? 'zh' : 'en');
+                d.lang = lang === 'zh' ? 'zh-CN' : 'en';
+                if (lang !== 'zh') {
+                    d.classList.add('i18n-pending');
+                    setTimeout(function () { d.classList.remove('i18n-pending'); }, 1500);
+                }
+            } catch (e) {}
+        })();
+    </script>
     <meta property="og:type" content="website">
     <meta property="og:title" content="DannyComputer2008 · 专业 IT 技术服务">
     <meta property="og:description" content="电脑、网络与企业 IT 支持。大洛杉矶地区上门服务及远程协助。">
@@ -156,6 +173,7 @@
             /* 键盘可访问性：键盘导航时显示清晰的焦点框（鼠标点击按钮不会出现；输入框获得焦点时始终显示） */
         :focus-visible { outline: 2px solid #0071E3 !important; outline-offset: 3px !important; }
         .dark :focus-visible { outline-color: #2997FF !important; }
+            html.i18n-pending body { visibility: hidden; }
     </style>
 </head>
 <body class="bg-white text-[#1D1D1F] dark:bg-black dark:text-[#F5F5F7] selection:bg-appleBlue selection:text-white">
@@ -554,6 +572,11 @@
     </footer>
     <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
 
+    <!-- 手机端悬浮预约按钮：滚过首屏后出现，到达预约表单后自动隐藏（桌面端不显示） -->
+    <a id="floating-book" href="#booking" data-i18n="floatBook" aria-hidden="true" tabindex="-1"
+       class="md:hidden fixed left-1/2 -translate-x-1/2 z-40 px-7 py-3.5 rounded-full bg-appleBlue text-white text-sm font-semibold shadow-xl shadow-appleBlue/30 whitespace-nowrap transition-all duration-300 opacity-0 translate-y-4 pointer-events-none"
+       style="bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));">预约上门服务</a>
+
     <!-- 自定义轻量提示框 (替代 alert) -->
     <div id="toast-box" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-300 translate-y-4">
         <div class="px-6 py-3 rounded-full bg-[#1D1D1F] dark:bg-white text-white dark:text-[#1D1D1F] text-sm font-medium shadow-xl flex items-center gap-2">
@@ -639,6 +662,7 @@
                 optNetwork: '家庭 / 办公室网络维修调优',
                 optRecovery: '数据恢复 / 硬盘升级',
                 optWeb: '网站 / APP 制作',
+                floatBook: '预约上门服务',
                 labelCity: '所在城市 (洛杉矶地区)',
                 phCity: '例如：Monterey Park / Arcadia / Irvine',
                 labelDesc: '设备型号与问题描述',
@@ -737,6 +761,7 @@
                 optNetwork: 'Home / Office Network Optimization',
                 optRecovery: 'Data Recovery / SSD Upgrade',
                 optWeb: 'Website / App Development',
+                floatBook: 'Book Service',
                 labelCity: 'City (Greater Los Angeles)',
                 phCity: 'e.g., Monterey Park / Arcadia / Irvine',
                 labelDesc: 'Device Model & Issue Description',
@@ -849,6 +874,7 @@
             );
         }
         applyBrowserLanguage();
+        document.documentElement.classList.remove('i18n-pending');
 
         document.getElementById('lang-toggle')?.addEventListener('click', () => {
             const next = currentLang === 'zh' ? 'en' : 'zh';
@@ -859,6 +885,8 @@
         function applyTheme(mode) {
             const night = mode === 'dark';
             document.documentElement.classList.toggle('dark', night);
+            const themeMeta = document.querySelector('meta[name="theme-color"]');
+            if (themeMeta) themeMeta.setAttribute('content', night ? '#000000' : '#F5F5F7');
             const button = document.getElementById('theme-toggle');
             if (button) {
                 button.innerHTML = night ? '<i data-lucide="sun" class="w-4 h-4"></i>' : '<i data-lucide="moon" class="w-4 h-4"></i>';
@@ -867,12 +895,20 @@
             }
         }
         const savedTheme = safeStorageGet('dc2008-theme');
-        const initialHour = new Date().getHours();
+        const systemDarkQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
 
+        // 优先使用用户手动选择；没有选择过则跟随系统深色 / 浅色设置
         applyTheme(
             savedTheme ||
-            (initialHour < 6 || initialHour >= 18 ? 'dark' : 'light')
+            (systemDarkQuery && systemDarkQuery.matches ? 'dark' : 'light')
         );
+
+        // 系统设置变化时（且用户没手动选过），自动跟随
+        if (systemDarkQuery && systemDarkQuery.addEventListener) {
+            systemDarkQuery.addEventListener('change', (event) => {
+                if (!safeStorageGet('dc2008-theme')) applyTheme(event.matches ? 'dark' : 'light');
+            });
+        }
 
         document.getElementById('theme-toggle')?.addEventListener('click', () => {
             const next = document.documentElement.classList.contains('dark')
@@ -882,6 +918,42 @@
             safeStorageSet('dc2008-theme', next);
             applyTheme(next);
         });
+
+        // 手机端悬浮预约按钮：滚过首屏后显示；预约表单进入视野（或已滚过）后隐藏
+        (function initFloatingBook() {
+            const btn = document.getElementById('floating-book');
+            const booking = document.getElementById('booking');
+            if (!btn || !booking) return;
+            const hiddenClasses = ['opacity-0', 'translate-y-4', 'pointer-events-none'];
+            let visible = false;
+            let ticking = false;
+
+            function setVisible(next) {
+                if (next === visible) return;
+                visible = next;
+                hiddenClasses.forEach(c => btn.classList.toggle(c, !next));
+                btn.setAttribute('aria-hidden', next ? 'false' : 'true');
+                btn.setAttribute('tabindex', next ? '0' : '-1');
+            }
+
+            function update() {
+                ticking = false;
+                const pastHero = window.scrollY > window.innerHeight * 0.6;
+                const bookingReached = booking.getBoundingClientRect().top < window.innerHeight * 0.9;
+                setVisible(pastHero && !bookingReached);
+            }
+
+            function onScroll() {
+                if (!ticking) {
+                    ticking = true;
+                    window.requestAnimationFrame(update);
+                }
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onScroll);
+            update();
+        })();
 
         function initIcons() {
             if (typeof lucide !== 'undefined' && lucide.createIcons) {
