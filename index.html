@@ -131,12 +131,9 @@
             -moz-osx-font-smoothing: grayscale;
             transition: background-color 0.4s ease, color 0.4s ease;
         }
-        /* Bento 卡片微动效 */
+        /* Bento 卡片样式（所有模块保持固定不动） */
         .bento-card {
-            transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-        .bento-card:hover {
-            transform: translateY(-4px);
+            transition: box-shadow 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
         /* 渐入动画采用渐进增强：默认内容可见，JS 正常运行时才启用隐藏态 */
         .js-motion .fade-up {
