@@ -300,6 +300,27 @@
         </div>
     </section>
 
+    <!-- ==================== 2.8 服务区域地图 ==================== -->
+    <section id="service-area" class="max-w-5xl mx-auto px-6 py-10">
+        <div class="fade-up rounded-3xl overflow-hidden bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 shadow-sm">
+            <div class="text-center max-w-xl mx-auto px-6 pt-10 pb-8 sm:pt-12">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-appleBlue mb-2">Service Area</p>
+                <h2 data-i18n="mapTitle" class="text-3xl sm:text-4xl font-bold tracking-tight mb-3">覆盖大洛杉矶地区</h2>
+                <p data-i18n="mapSub" class="text-sm sm:text-base text-[#6E6E73] dark:text-[#86868B]">以洛杉矶市区为中心提供上门服务，具体服务范围预约时确认。</p>
+            </div>
+            <div class="px-4 pb-4 sm:px-6 sm:pb-6">
+                <iframe
+                    title="Los Angeles service area map"
+                    src="https://www.google.com/maps?q=Downtown+Los+Angeles,+CA&z=10&output=embed"
+                    class="block w-full h-[320px] sm:h-[420px] rounded-2xl border border-black/5 dark:border-white/10"
+                    style="border:0"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
     <!-- ==================== 3. 预约上门与快速联系表单（与上方网格同宽对齐） ==================== -->
     <section id="booking" class="max-w-5xl mx-auto px-6 py-20">
         <div class="rounded-3xl p-8 sm:p-12 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 shadow-sm">
@@ -472,6 +493,8 @@
                 btnMacDownload: '下载 macOS 版',
                 tagBooking: '预约上门',
                 bookingTitle: '预约上门技术支持',
+                mapTitle: '覆盖大洛杉矶地区',
+                mapSub: '以洛杉矶市区为中心提供上门服务，具体服务范围预约时确认。',
                 bookingSub: '填写以下信息，Danny 将尽快联系您，确认服务范围、预估工时与安排。',
                 labelName: '您的称呼 *',
                 phName: '例如：张先生 / Ms. Li',
@@ -554,6 +577,8 @@
                 btnMacDownload: 'Download for macOS',
                 tagBooking: 'Book An Appointment',
                 bookingTitle: 'Book On-Site Tech Support',
+                mapTitle: 'Serving Greater Los Angeles',
+                mapSub: 'On-site service centered on Los Angeles. Exact coverage is confirmed when you book.',
                 bookingSub: 'Tell me what you need and where you are. I’ll follow up to confirm the scope, estimate, and scheduling.',
                 labelName: 'Your Name *',
                 phName: 'e.g., Alex Chen / Ms. Li',
