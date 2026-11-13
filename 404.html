@@ -22,33 +22,67 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; margin: 0; }
         :focus-visible { outline: 2px solid #0071E3 !important; outline-offset: 3px !important; }
         .dark :focus-visible { outline-color: #2997FF !important; }
-        /* 兜底保障按钮在任意构建环境下都有充足舒展的内边距与外间距 */
+        /* 使用原生 CSS 布局，确保在任何本地编译的 styles.css 下都能撑满 100vh 视口高度，版权信息彻底沉底不局促 */
+        .page-shell {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 3rem 1.5rem 2.5rem;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .main-content {
+            width: 100%;
+            max-width: 42rem;
+            margin: auto 0;
+            padding-top: 2rem;
+            padding-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
         .btn-relaxed {
             padding: 1rem 2.75rem;
             min-width: 196px;
         }
+        .site-footer {
+            width: 100%;
+            padding-top: 3rem;
+            padding-bottom: 0.5rem;
+        }
     </style>
 </head>
 <body class="font-sans bg-white text-[#1D1D1F] dark:bg-black dark:text-[#F5F5F7] selection:bg-appleBlue selection:text-white">
-    <div class="min-h-screen flex flex-col justify-between px-6 py-12 text-center">
-        <!-- 顶部留白占位，配合主内容下移营造松弛呼吸感 -->
-        <div class="h-10 sm:h-16" aria-hidden="true"></div>
+    <div class="page-shell">
+        <!-- 顶部占位平衡，配合主内容区微微下沉 -->
+        <div style="height: 2rem;" aria-hidden="true"></div>
 
-        <!-- 核心内容区：整体下移、字号放大、按钮宽敞舒展 -->
-        <main class="w-full max-w-2xl mx-auto flex flex-col items-center justify-center pt-8 sm:pt-14 pb-10">
+        <!-- 核心内容区：字号放大、整体下移、按钮宽敞舒展 -->
+        <main class="main-content">
             <h1 data-i18n="title" class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight mb-6">页面未找到</h1>
-            <p data-i18n="desc" class="max-w-xl text-base sm:text-xl leading-relaxed text-[#6E6E73] dark:text-[#86868B] mb-12 sm:mb-14">您访问的页面不存在，或已被移动。请返回首页，或直接预约上门服务。</p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-7 w-full sm:w-auto">
+            <p data-i18n="desc" class="max-w-xl text-base sm:text-xl leading-relaxed text-[#6E6E73] dark:text-[#86868B] mb-12">您访问的页面不存在，或已被移动。请返回首页，或直接预约上门服务。</p>
+            <div class="btn-group">
                 <a href="/" data-i18n="home" class="btn-relaxed inline-flex items-center justify-center whitespace-nowrap rounded-full bg-appleBlue hover:bg-appleBlueHover text-white text-base font-semibold tracking-wide transition-all duration-200 shadow-lg shadow-appleBlue/20 active:scale-95">返回首页</a>
                 <a href="/#booking" data-i18n="book" class="btn-relaxed inline-flex items-center justify-center whitespace-nowrap rounded-full border border-black/10 dark:border-white/15 bg-[#F5F5F7] dark:bg-[#161617] hover:bg-black/5 dark:hover:bg-white/10 text-base font-semibold tracking-wide transition-all duration-200 active:scale-95">预约上门服务</a>
             </div>
         </main>
 
-        <!-- 底部版权信息：自然沉底，与上方按钮拉开充足距离 -->
-        <footer class="pt-12 pb-2">
+        <!-- 底部版权信息：自然沉在屏幕最下方，彻底告别局促感 -->
+        <footer class="site-footer">
             <p class="text-xs tracking-wider text-[#6E6E73] dark:text-[#86868B]">© DannyComputer2008</p>
         </footer>
     </div>
