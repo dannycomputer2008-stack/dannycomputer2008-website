@@ -380,6 +380,86 @@
         </div>
     </section>
 
+    <!-- ==================== 4. 客户评价与用户反馈模块（位于地图模块下方，与全站 max-w-5xl 严格对齐） ==================== -->
+    <section id="reviews" class="max-w-5xl mx-auto px-6 py-10">
+        <div class="rounded-3xl p-8 sm:p-12 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 shadow-sm">
+            <!-- 顶部标题栏 -->
+            <div class="mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-black/5 dark:border-white/10 pb-6">
+                <div>
+                    <p data-i18n="tagReviews" class="text-xs font-semibold uppercase tracking-[0.2em] text-appleBlue mb-2">Client Feedback</p>
+                    <h2 data-i18n="reviewsTitle" class="text-3xl sm:text-4xl font-bold tracking-tight">客户真实评价与反馈</h2>
+                </div>
+                <p data-i18n="reviewsSub" class="text-sm text-[#6E6E73] dark:text-[#86868B]">
+                    感谢每一位信任 Danny 的家庭与企业客户
+                </p>
+            </div>
+
+            <!-- 用户新提交评价即时追加区（初始为空，用户提交后自动展示） -->
+            <div id="reviews-list" class="hidden grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10"></div>
+
+            <!-- 用户自助填写反馈表单 -->
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-6">
+                    <h3 data-i18n="feedbackFormTitle" class="text-xl sm:text-2xl font-bold tracking-tight mb-2">留下您的使用体验与建议</h3>
+                    <p data-i18n="feedbackFormSub" class="text-xs sm:text-sm text-[#6E6E73] dark:text-[#86868B]">
+                        如果您曾使用过我们的服务，欢迎写下真实感受；审核后将展示在页面中。
+                    </p>
+                </div>
+
+                <form id="feedback-form" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                            <label for="fb-name" data-i18n="fbLabelName" class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] dark:text-[#86868B] mb-2">
+                                您的称呼 *
+                            </label>
+                            <input type="text" id="fb-name" name="Reviewer name" required data-i18n-placeholder="fbPhName" placeholder="例如：王先生 / Alex"
+                                class="w-full h-12 px-4 rounded-2xl bg-white dark:bg-black border border-black/10 dark:border-white/15 text-sm focus:outline-none focus:border-appleBlue transition-colors">
+                        </div>
+                        <div>
+                            <label for="fb-city" data-i18n="fbLabelCity" class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] dark:text-[#86868B] mb-2">
+                                所在城市（选填）
+                            </label>
+                            <input type="text" id="fb-city" name="Reviewer city" data-i18n-placeholder="fbPhCity" placeholder="例如：Pasadena"
+                                class="w-full h-12 px-4 rounded-2xl bg-white dark:bg-black border border-black/10 dark:border-white/15 text-sm focus:outline-none focus:border-appleBlue transition-colors">
+                        </div>
+                        <div>
+                            <label for="fb-rating" data-i18n="fbLabelRating" class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] dark:text-[#86868B] mb-2">
+                                服务评分
+                            </label>
+                            <select id="fb-rating" name="Rating"
+                                class="w-full h-12 px-4 rounded-2xl bg-white dark:bg-black border border-black/10 dark:border-white/15 text-sm focus:outline-none focus:border-appleBlue transition-colors">
+                                <option value="★★★★★" data-i18n="fbOpt5">★★★★★ 非常满意</option>
+                                <option value="★★★★☆" data-i18n="fbOpt4">★★★★☆ 满意</option>
+                                <option value="★★★☆☆" data-i18n="fbOpt3">★★★☆☆ 一般</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="fb-content" data-i18n="fbLabelContent" class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] dark:text-[#86868B] mb-2">
+                            您的评价或建议 *
+                        </label>
+                        <textarea id="fb-content" name="Feedback content" rows="3" required data-i18n-placeholder="fbPhContent" placeholder="请分享您的服务体验、问题解决情况或对网站的改进建议..."
+                            class="w-full p-4 rounded-2xl bg-white dark:bg-black border border-black/10 dark:border-white/15 text-sm focus:outline-none focus:border-appleBlue transition-colors"></textarea>
+                    </div>
+
+                    <div class="honeypot-field" aria-hidden="true">
+                        <label for="fb-website">Leave this field empty</label>
+                        <input type="text" id="fb-website" name="_honey" tabindex="-1" autocomplete="off">
+                    </div>
+                    <input type="hidden" name="_subject" value="New client feedback — DannyComputer2008">
+                    <input type="hidden" name="_template" value="table">
+
+                    <p id="fb-status" class="text-sm text-center" role="status" aria-live="polite"></p>
+                    <button type="submit" data-i18n="fbSubmitBtn"
+                        class="w-full py-3.5 rounded-full bg-white dark:bg-black hover:bg-black/5 dark:hover:bg-white/10 text-[#1D1D1F] dark:text-[#F5F5F7] border border-black/15 dark:border-white/20 font-semibold text-sm sm:text-base tracking-wide transition-all duration-200 active:scale-[0.99]">
+                        提交我的反馈
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- ==================== 2.5 远程协助工具下载 (RustDesk 苹果极简卡片) ==================== -->
     <section id="remote-support" class="max-w-5xl mx-auto px-6 py-10">
         <div class="bento-card fade-up rounded-3xl p-8 sm:p-10 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col lg:flex-row lg:flex-wrap items-start lg:items-center justify-between gap-8">
@@ -518,134 +598,6 @@
                     <button type="submit" data-i18n="submitBtn"
                         class="w-full py-4 rounded-full bg-appleBlue hover:bg-appleBlueHover text-white font-semibold text-base tracking-wide shadow-lg shadow-appleBlue/20 transition-all duration-200 active:scale-[0.99]">
                         提交预约请求
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== 4. 客户评价与用户反馈模块（与全站 max-w-5xl 严格对齐） ==================== -->
-    <section id="reviews" class="max-w-5xl mx-auto px-6 py-10">
-        <div class="rounded-3xl p-8 sm:p-12 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 shadow-sm">
-            <!-- 顶部标题栏 -->
-            <div class="mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-black/5 dark:border-white/10 pb-6">
-                <div>
-                    <p data-i18n="tagReviews" class="text-xs font-semibold uppercase tracking-[0.2em] text-appleBlue mb-2">Client Feedback</p>
-                    <h2 data-i18n="reviewsTitle" class="text-3xl sm:text-4xl font-bold tracking-tight">客户真实评价与反馈</h2>
-                </div>
-                <p data-i18n="reviewsSub" class="text-sm text-[#6E6E73] dark:text-[#86868B]">
-                    感谢每一位信任 DannyComputer2008 的家庭与企业客户
-                </p>
-            </div>
-
-            <!-- 已有客户评价展示网格（及用户新提交评价即时追加区） -->
-            <div id="reviews-list" class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10">
-                <div class="bento-card rounded-2xl p-6 bg-white dark:bg-black border border-black/5 dark:border-white/10 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between gap-2 mb-3">
-                            <span class="text-sm font-bold text-appleBlue tracking-wider">★★★★★</span>
-                            <span data-i18n="rev1Tag" class="text-xs px-2.5 py-1 rounded-full bg-appleBlue/10 text-appleBlue font-medium">全屋网络调优</span>
-                        </div>
-                        <p data-i18n="rev1Text" class="text-sm text-[#1D1D1F]/85 dark:text-[#F5F5F7]/85 leading-relaxed mb-5">
-                            “家里两层楼以前二楼卧室经常断网，Danny 上门重新规划了 Mesh 节点并理顺了弱电箱线路，现在全屋信号满格，收费也很透明。”
-                        </p>
-                    </div>
-                    <div class="flex items-center justify-between text-xs text-[#6E6E73] dark:text-[#86868B] border-t border-black/5 dark:border-white/10 pt-4">
-                        <span class="font-semibold text-[#1D1D1F] dark:text-[#F5F5F7]">陈先生 · Mr. Chen</span>
-                        <span>Arcadia</span>
-                    </div>
-                </div>
-
-                <div class="bento-card rounded-2xl p-6 bg-white dark:bg-black border border-black/5 dark:border-white/10 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between gap-2 mb-3">
-                            <span class="text-sm font-bold text-appleBlue tracking-wider">★★★★★</span>
-                            <span data-i18n="rev2Tag" class="text-xs px-2.5 py-1 rounded-full bg-appleBlue/10 text-appleBlue font-medium">企业 IT 运维</span>
-                        </div>
-                        <p data-i18n="rev2Text" class="text-sm text-[#1D1D1F]/85 dark:text-[#F5F5F7]/85 leading-relaxed mb-5">
-                            “帮我们办公室部署了 NAS 自动备份和打印机共享，解决了多年文件混乱的问题，遇到小问题用 RustDesk 远程几分钟就搞定了。”
-                        </p>
-                    </div>
-                    <div class="flex items-center justify-between text-xs text-[#6E6E73] dark:text-[#86868B] border-t border-black/5 dark:border-white/10 pt-4">
-                        <span class="font-semibold text-[#1D1D1F] dark:text-[#F5F5F7]">林会计师 · Grace L.</span>
-                        <span>Monterey Park</span>
-                    </div>
-                </div>
-
-                <div class="bento-card rounded-2xl p-6 bg-white dark:bg-black border border-black/5 dark:border-white/10 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between gap-2 mb-3">
-                            <span class="text-sm font-bold text-appleBlue tracking-wider">★★★★★</span>
-                            <span data-i18n="rev3Tag" class="text-xs px-2.5 py-1 rounded-full bg-appleBlue/10 text-appleBlue font-medium">硬件维修升级</span>
-                        </div>
-                        <p data-i18n="rev3Text" class="text-sm text-[#1D1D1F]/85 dark:text-[#F5F5F7]/85 leading-relaxed mb-5">
-                            “老电脑卡得没法用，原本打算直接扔了，Danny 评估后建议只换固态硬盘和清灰，花小钱就恢复如新，完全不推销多余配件。”
-                        </p>
-                    </div>
-                    <div class="flex items-center justify-between text-xs text-[#6E6E73] dark:text-[#86868B] border-t border-black/5 dark:border-white/10 pt-4">
-                        <span class="font-semibold text-[#1D1D1F] dark:text-[#F5F5F7]">David W.</span>
-                        <span>Irvine</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 用户自助填写反馈表单 -->
-            <div class="max-w-3xl mx-auto border-t border-black/10 dark:border-white/10 pt-10">
-                <div class="text-center mb-6">
-                    <h3 data-i18n="feedbackFormTitle" class="text-xl sm:text-2xl font-bold tracking-tight mb-2">留下您的使用体验与建议</h3>
-                    <p data-i18n="feedbackFormSub" class="text-xs sm:text-sm text-[#6E6E73] dark:text-[#86868B]">
-                        如果您曾使用过我们的服务，欢迎写下真实感受；审核后将展示在页面中。
-                    </p>
-                </div>
-
-                <form id="feedback-form" class="space-y-4">
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div>
-                            <label for="fb-name" data-i18n="fbLabelName" class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] dark:text-[#86868B] mb-2">
-                                您的称呼 *
-                            </label>
-                            <input type="text" id="fb-name" name="Reviewer name" required data-i18n-placeholder="fbPhName" placeholder="例如：王先生 / Alex"
-                                class="w-full h-12 px-4 rounded-2xl bg-white dark:bg-black border border-black/10 dark:border-white/15 text-sm focus:outline-none focus:border-appleBlue transition-colors">
-                        </div>
-                        <div>
-                            <label for="fb-city" data-i18n="fbLabelCity" class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] dark:text-[#86868B] mb-2">
-                                所在城市（选填）
-                            </label>
-                            <input type="text" id="fb-city" name="Reviewer city" data-i18n-placeholder="fbPhCity" placeholder="例如：Pasadena"
-                                class="w-full h-12 px-4 rounded-2xl bg-white dark:bg-black border border-black/10 dark:border-white/15 text-sm focus:outline-none focus:border-appleBlue transition-colors">
-                        </div>
-                        <div>
-                            <label for="fb-rating" data-i18n="fbLabelRating" class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] dark:text-[#86868B] mb-2">
-                                服务评分
-                            </label>
-                            <select id="fb-rating" name="Rating"
-                                class="w-full h-12 px-4 rounded-2xl bg-white dark:bg-black border border-black/10 dark:border-white/15 text-sm focus:outline-none focus:border-appleBlue transition-colors">
-                                <option value="★★★★★" data-i18n="fbOpt5">★★★★★ 非常满意</option>
-                                <option value="★★★★☆" data-i18n="fbOpt4">★★★★☆ 满意</option>
-                                <option value="★★★☆☆" data-i18n="fbOpt3">★★★☆☆ 一般</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label for="fb-content" data-i18n="fbLabelContent" class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] dark:text-[#86868B] mb-2">
-                            您的评价或建议 *
-                        </label>
-                        <textarea id="fb-content" name="Feedback content" rows="3" required data-i18n-placeholder="fbPhContent" placeholder="请分享您的服务体验、问题解决情况或对网站的改进建议..."
-                            class="w-full p-4 rounded-2xl bg-white dark:bg-black border border-black/10 dark:border-white/15 text-sm focus:outline-none focus:border-appleBlue transition-colors"></textarea>
-                    </div>
-
-                    <div class="honeypot-field" aria-hidden="true">
-                        <label for="fb-website">Leave this field empty</label>
-                        <input type="text" id="fb-website" name="_honey" tabindex="-1" autocomplete="off">
-                    </div>
-                    <input type="hidden" name="_subject" value="New client feedback — DannyComputer2008">
-                    <input type="hidden" name="_template" value="table">
-
-                    <p id="fb-status" class="text-sm text-center" role="status" aria-live="polite"></p>
-                    <button type="submit" data-i18n="fbSubmitBtn"
-                        class="w-full py-3.5 rounded-full bg-white dark:bg-black hover:bg-black/5 dark:hover:bg-white/10 text-[#1D1D1F] dark:text-[#F5F5F7] border border-black/15 dark:border-white/20 font-semibold text-sm sm:text-base tracking-wide transition-all duration-200 active:scale-[0.99]">
-                        提交我的反馈
                     </button>
                 </form>
             </div>
@@ -797,13 +749,7 @@
                 submitBtn: '提交预约请求',
                 tagReviews: '客户反馈',
                 reviewsTitle: '客户真实评价与反馈',
-                reviewsSub: '感谢每一位信任 DannyComputer2008 的家庭与企业客户',
-                rev1Tag: '全屋网络调优',
-                rev1Text: '“家里两层楼以前二楼卧室经常断网，Danny 上门重新规划了 Mesh 节点并理顺了弱电箱线路，现在全屋信号满格，收费也很透明。”',
-                rev2Tag: '企业 IT 运维',
-                rev2Text: '“帮我们办公室部署了 NAS 自动备份和打印机共享，解决了多年文件混乱的问题，遇到小问题用 RustDesk 远程几分钟就搞定了。”',
-                rev3Tag: '硬件维修升级',
-                rev3Text: '“老电脑卡得没法用，原本打算直接扔了，Danny 评估后建议只换固态硬盘和清灰，花小钱就恢复如新，完全不推销多余配件。”',
+                reviewsSub: '感谢每一位信任 Danny 的家庭与企业客户',
                 feedbackFormTitle: '留下您的使用体验与建议',
                 feedbackFormSub: '如果您曾使用过我们的服务，欢迎写下真实感受；审核后将展示在页面中。',
                 fbLabelName: '您的称呼 *',
@@ -922,13 +868,7 @@
                 submitBtn: 'Submit Appointment Request',
                 tagReviews: 'Client Feedback',
                 reviewsTitle: 'Client Reviews & Feedback',
-                reviewsSub: 'Thank you to every home and business client who trusts DannyComputer2008',
-                rev1Tag: 'Home Network Tuning',
-                rev1Text: '“Our upstairs bedrooms kept dropping Wi-Fi. Danny reorganized our network panel and set up a seamless Mesh system. Full signal everywhere and very fair pricing.”',
-                rev2Tag: 'Business IT Support',
-                rev2Text: '“Set up automated NAS backups and shared office printers for our firm. Minor issues are resolved in minutes over RustDesk remote support.”',
-                rev3Tag: 'Hardware Upgrade',
-                rev3Text: '“Thought my sluggish desktop needed replacing, but Danny recommended a simple SSD upgrade and deep thermal cleaning. Runs like new without any upselling.”',
+                reviewsSub: 'Thank you to every home and business client who trusts Danny',
                 feedbackFormTitle: 'Share Your Experience or Suggestions',
                 feedbackFormSub: 'Used our service before? Leave your honest feedback below—verified reviews will be featured on the page.',
                 fbLabelName: 'Your Name *',
@@ -1268,6 +1208,7 @@
                     // 在当前访客页面即时生成一张“审核中”反馈卡片（使用 textContent 防 XSS）
                     const reviewsList = document.getElementById('reviews-list');
                     if (reviewsList) {
+                        reviewsList.classList.remove('hidden');
                         const card = document.createElement('div');
                         card.className = 'bento-card rounded-2xl p-6 bg-white dark:bg-black border border-black/5 dark:border-white/10 flex flex-col justify-between';
 
