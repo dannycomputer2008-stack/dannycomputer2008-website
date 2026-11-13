@@ -28,16 +28,15 @@
     </style>
 </head>
 <body class="font-sans bg-white text-[#1D1D1F] dark:bg-black dark:text-[#F5F5F7] selection:bg-appleBlue selection:text-white">
-    <main class="min-h-screen flex flex-col items-center justify-center px-6 py-16 text-center">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-appleBlue mb-4">Error 404</p>
-        <h1 class="text-7xl sm:text-8xl font-extrabold tracking-tight text-appleBlue mb-5">404</h1>
-        <h2 data-i18n="title" class="text-2xl sm:text-3xl font-bold tracking-tight mb-3">页面未找到</h2>
-        <p data-i18n="desc" class="max-w-md text-sm sm:text-base leading-relaxed text-[#6E6E73] dark:text-[#86868B] mb-9">您访问的页面不存在，或已被移动。请返回首页，或直接预约上门服务。</p>
-        <div class="flex flex-col sm:flex-row items-center gap-3">
-            <a href="/" data-i18n="home" class="inline-flex items-center justify-center min-w-[168px] px-8 py-3.5 rounded-full bg-appleBlue hover:bg-appleBlueHover text-white text-sm font-semibold transition-colors">返回首页</a>
-            <a href="/#booking" data-i18n="book" class="inline-flex items-center justify-center min-w-[168px] px-8 py-3.5 rounded-full border border-black/10 dark:border-white/15 bg-white/80 dark:bg-[#161617]/80 text-sm font-semibold transition-colors">预约上门服务</a>
+    <main class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center">
+        <!-- 移除冗余的 Error 404 标签及大字号数字 404，以宽敞清爽的苹果风格排版呈现 -->
+        <h1 data-i18n="title" class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">页面未找到</h1>
+        <p data-i18n="desc" class="max-w-lg text-base sm:text-lg leading-relaxed text-[#6E6E73] dark:text-[#86868B] mb-10">您访问的页面不存在，或已被移动。请返回首页，或直接预约上门服务。</p>
+        <div class="flex flex-col sm:flex-row items-center gap-4">
+            <a href="/" data-i18n="home" class="inline-flex items-center justify-center min-w-[180px] px-8 py-4 rounded-full bg-appleBlue hover:bg-appleBlueHover text-white text-base font-semibold transition-all duration-200 shadow-lg shadow-appleBlue/20 active:scale-95">返回首页</a>
+            <a href="/#booking" data-i18n="book" class="inline-flex items-center justify-center min-w-[180px] px-8 py-4 rounded-full border border-black/10 dark:border-white/15 bg-[#F5F5F7] dark:bg-[#161617] hover:bg-black/5 dark:hover:bg-white/10 text-base font-semibold transition-all duration-200 active:scale-95">预约上门服务</a>
         </div>
-        <p class="mt-16 text-xs text-[#6E6E73] dark:text-[#86868B]">© DannyComputer2008</p>
+        <p class="mt-20 text-xs text-[#6E6E73] dark:text-[#86868B]">© DannyComputer2008</p>
     </main>
 
     <script>
