@@ -118,7 +118,7 @@
         }
     }
     </script>
-    <!-- 样式：本地编译的 Tailwind CSS（styles.css）；图标：本地精简版 lucide 1.59.0（lucide-icons.min.js） -->
+        <!-- 样式：本地编译的 Tailwind CSS（styles.css）；图标：本地精简版 lucide 1.59.0（lucide-icons.min.js） -->
     <link rel="stylesheet" href="/styles.css">
     <script src="/lucide-icons.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,9 +131,12 @@
             -moz-osx-font-smoothing: grayscale;
             transition: background-color 0.4s ease, color 0.4s ease;
         }
-        /* Bento 卡片样式（所有模块保持固定不动） */
+        /* Bento 卡片微动效 */
         .bento-card {
-            transition: box-shadow 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+            transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .bento-card:hover {
+            transform: translateY(-4px);
         }
         /* 渐入动画采用渐进增强：默认内容可见，JS 正常运行时才启用隐藏态 */
         .js-motion .fade-up {
@@ -167,10 +170,10 @@
         html[lang="en"] .optical-center-sub {
             left: 0;
         }
-        /* 键盘可访问性：键盘导航时显示清晰的焦点框（鼠标点击按钮不会出现；输入框获得焦点时始终显示） */
+            /* 键盘可访问性：键盘导航时显示清晰的焦点框（鼠标点击按钮不会出现；输入框获得焦点时始终显示） */
         :focus-visible { outline: 2px solid #0071E3 !important; outline-offset: 3px !important; }
         .dark :focus-visible { outline-color: #2997FF !important; }
-        html.i18n-pending body { visibility: hidden; }
+            html.i18n-pending body { visibility: hidden; }
     </style>
 </head>
 <body class="bg-white text-[#1D1D1F] dark:bg-black dark:text-[#F5F5F7] selection:bg-appleBlue selection:text-white">
@@ -197,7 +200,7 @@
             <div class="w-full text-center mb-7">
                 <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.15]">
                     <span class="optical-center-heading">
-                        <span data-i18n="heroTitle1">让电脑</span><br>
+                        <span data-i18n="heroTitle1">让每一台电脑</span><br>
                         <span data-i18n="heroTitle2" class="text-appleBlue">正常工作</span>
                     </span>
                 </h1>
@@ -206,7 +209,7 @@
             <!-- 核心服务说明副标题 -->
             <div class="w-full text-center mb-11">
                 <p class="optical-center-sub max-w-2xl mx-auto text-base sm:text-xl text-[#6E6E73] dark:text-[#86868B] font-normal leading-relaxed">
-                    <span data-i18n-html="heroSub">从电脑选购到网络调优，按需解决您的每一项技术难题<br class="hidden sm:inline">透明、高效、可靠，让专业服务更省心</span>
+                    <span data-i18n-html="heroSub">从电脑选购到网络调优，按需解决您的每一项技术难题<br class="hidden sm:inline">透明、高效、可靠，让专业服务省心一步</span>
                 </p>
             </div>
 
@@ -220,7 +223,7 @@
     </section>
 
     <!-- ==================== 2. 核心服务矩阵 (统一 max-w-5xl 与全站左右严格对齐) ==================== -->
-    <section id="services" class="max-w-5xl mx-auto px-6 py-10">
+    <section id="services" class="max-w-5xl mx-auto px-6 py-20">
         <!-- 标题栏：统一与下方网格左边缘严格对齐 -->
         <div class="mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-black/5 dark:border-white/10 pb-6">
             <div>
@@ -228,7 +231,7 @@
                 <h2 data-i18n="servicesTitle" class="text-3xl sm:text-4xl font-bold tracking-tight">专业电脑、网络与企业 IT 服务</h2>
             </div>
             <p data-i18n="servicesSub" class="text-sm text-[#6E6E73] dark:text-[#86868B]">
-                大洛杉矶地区上门 & 远程极速响应
+                大洛杉矶地区上门 & 远程响应
             </p>
         </div>
 
@@ -242,12 +245,12 @@
                     </div>
                     <h3 data-i18n="card1Title" class="text-xl sm:text-2xl font-bold mb-3 tracking-tight">硬件维修与故障排查</h3>
                     <p data-i18n="card1Desc" class="text-sm text-[#6E6E73] dark:text-[#86868B] leading-relaxed mb-6">
-                        精准定位不开机、蓝屏死机、过热降频、硬盘损坏及进水故障。支持 Windows 台式机、笔记本及 Mac 全系硬件升级与更换。
+                        精准定位不开机、蓝屏死机、过热降频、硬盘损坏及进水故障。Windows 台式机、笔记本及可升级的 Mac，均可提供硬件升级与更换。
                     </p>
                 </div>
                 <ul class="space-y-3 text-sm font-medium text-[#1D1D1F]/85 dark:text-[#F5F5F7]/85 border-t border-black/5 dark:border-white/10 pt-5">
                     <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0"></i><span data-i18n="card1Item1">硬盘数据无损迁移与扩容</span></li>
-                    <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0"></i><span data-i18n="card1Item2">深度清灰散热硅脂更换</span></li>
+                    <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0"></i><span data-i18n="card1Item2">深度清灰与散热硅脂更换</span></li>
                     <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0"></i><span data-i18n="card1Item3">误删文件与故障盘数据恢复</span></li>
                 </ul>
             </div>
@@ -260,7 +263,7 @@
                     </div>
                     <h3 data-i18n="card2Title" class="text-xl sm:text-2xl font-bold mb-3 tracking-tight">电脑选购与专属装机</h3>
                     <p data-i18n="card2Desc" class="text-sm text-[#6E6E73] dark:text-[#86868B] leading-relaxed mb-6">
-                        拒绝参数冗余与消费陷阱。根据您的日常办公、跨境电商、剪辑渲染或游戏预算，提供客观选购清单或一对一手工装机调优。
+                        拒绝参数冗余与消费陷阱。根据您的使用场景和预算（日常办公、跨境电商、剪辑渲染或游戏），提供客观的选购清单，或一对一定制装机。
                     </p>
                 </div>
                 <ul class="space-y-3 text-sm font-medium text-[#1D1D1F]/85 dark:text-[#F5F5F7]/85 border-t border-black/5 dark:border-white/10 pt-5">
@@ -312,7 +315,7 @@
                         <i data-lucide="code" class="w-6 h-6"></i>
                     </div>
                     <h3 data-i18n="card5Title" class="text-xl sm:text-2xl font-bold mb-3 tracking-tight">网站和APP制作</h3>
-                    <p data-i18n="card5Desc" class="text-sm text-[#6E6E73] dark:text-[#86868B] leading-relaxed mb-6 md:mb-0">为个人与中小企业量身制作网站和手机 APP，从设计、开发到上线与后续维护一站完成。</p>
+                    <p data-i18n="card5Desc" class="text-sm text-[#6E6E73] dark:text-[#86868B] leading-relaxed mb-6 md:mb-0">为个人与中小企业量身制作网站和手机 APP，从设计、开发到上线与后续维护一站式完成。</p>
                 </div>
                 <ul class="space-y-3 text-sm font-medium text-[#1D1D1F]/85 dark:text-[#F5F5F7]/85 border-t border-black/5 dark:border-white/10 pt-5 md:border-t-0 md:border-l md:pt-0 md:pl-10 md:flex-1">
                     <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-appleBlue shrink-0 mt-0.5"></i><span data-i18n="card5Item1">企业官网、展示页与预约系统</span></li>
@@ -333,7 +336,7 @@
                     <h4 data-i18n="pricingTitle" class="text-2xl sm:text-3xl font-bold mb-3 tracking-tight">预估工时封顶，修不好不收费</h4>
                 </div>
                 <p data-i18n="pricingDesc" class="text-sm sm:text-base text-[#6E6E73] dark:text-[#86868B] leading-relaxed">
-                    服务按 $80/小时计费，维修前先评估并确认预计工时与人工费用。实际人工费用不超过事先确认的预估金额；若无法修复，不收取维修人工费。配件由客户自行购买，也可委托我代购，费用另行确认。无隐形收费。
+                    服务按 $80/小时计费，维修前先评估并确认预计工时与人工费用。实际人工费用不超过事先确认的预估金额；若无法修复，不收取维修人工费。配件由客户自行购买，也可委托丹尼代购，费用另行确认。无隐形收费。
                 </p>
             </div>
 
@@ -377,86 +380,6 @@
         </div>
     </section>
 
-    <!-- ==================== 4. 客户评价与用户反馈模块（位于地图模块下方，与全站 max-w-5xl 严格对齐） ==================== -->
-    <section id="reviews" class="max-w-5xl mx-auto px-6 py-10">
-        <div class="rounded-3xl p-8 sm:p-12 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 shadow-sm">
-            <!-- 顶部标题栏 -->
-            <div class="mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-black/5 dark:border-white/10 pb-6">
-                <div>
-                    <p data-i18n="tagReviews" class="text-xs font-semibold uppercase tracking-[0.2em] text-appleBlue mb-2">Client Feedback</p>
-                    <h2 data-i18n="reviewsTitle" class="text-3xl sm:text-4xl font-bold tracking-tight">客户真实评价与反馈</h2>
-                </div>
-                <p data-i18n="reviewsSub" class="text-sm text-[#6E6E73] dark:text-[#86868B]">
-                    感谢每一位信任 Danny 的家庭与企业客户
-                </p>
-            </div>
-
-            <!-- 用户新提交评价即时追加区（初始为空，用户提交后自动展示） -->
-            <div id="reviews-list" class="hidden grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10"></div>
-
-            <!-- 用户自助填写反馈表单 -->
-            <div class="max-w-3xl mx-auto">
-                <div class="text-center mb-6">
-                    <h3 data-i18n="feedbackFormTitle" class="text-xl sm:text-2xl font-bold tracking-tight mb-2">留下您的使用体验与建议</h3>
-                    <p data-i18n="feedbackFormSub" class="text-xs sm:text-sm text-[#6E6E73] dark:text-[#86868B]">
-                        如果您曾使用过我们的服务，欢迎写下真实感受；审核后将展示在页面中。
-                    </p>
-                </div>
-
-                <form id="feedback-form" class="space-y-4">
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div>
-                            <label for="fb-name" data-i18n="fbLabelName" class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] dark:text-[#86868B] mb-2">
-                                您的称呼 *
-                            </label>
-                            <input type="text" id="fb-name" name="Reviewer name" required data-i18n-placeholder="fbPhName" placeholder="例如：王先生 / Alex"
-                                class="w-full h-12 px-4 rounded-2xl bg-white dark:bg-black border border-black/10 dark:border-white/15 text-sm focus:outline-none focus:border-appleBlue transition-colors">
-                        </div>
-                        <div>
-                            <label for="fb-city" data-i18n="fbLabelCity" class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] dark:text-[#86868B] mb-2">
-                                所在城市（选填）
-                            </label>
-                            <input type="text" id="fb-city" name="Reviewer city" data-i18n-placeholder="fbPhCity" placeholder="例如：Pasadena"
-                                class="w-full h-12 px-4 rounded-2xl bg-white dark:bg-black border border-black/10 dark:border-white/15 text-sm focus:outline-none focus:border-appleBlue transition-colors">
-                        </div>
-                        <div>
-                            <label for="fb-rating" data-i18n="fbLabelRating" class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] dark:text-[#86868B] mb-2">
-                                服务评分
-                            </label>
-                            <select id="fb-rating" name="Rating"
-                                class="w-full h-12 px-4 rounded-2xl bg-white dark:bg-black border border-black/10 dark:border-white/15 text-sm focus:outline-none focus:border-appleBlue transition-colors">
-                                <option value="★★★★★" data-i18n="fbOpt5">★★★★★ 非常满意</option>
-                                <option value="★★★★☆" data-i18n="fbOpt4">★★★★☆ 满意</option>
-                                <option value="★★★☆☆" data-i18n="fbOpt3">★★★☆☆ 一般</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label for="fb-content" data-i18n="fbLabelContent" class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] dark:text-[#86868B] mb-2">
-                            您的评价或建议 *
-                        </label>
-                        <textarea id="fb-content" name="Feedback content" rows="3" required data-i18n-placeholder="fbPhContent" placeholder="请分享您的服务体验、问题解决情况或对网站的改进建议..."
-                            class="w-full p-4 rounded-2xl bg-white dark:bg-black border border-black/10 dark:border-white/15 text-sm focus:outline-none focus:border-appleBlue transition-colors"></textarea>
-                    </div>
-
-                    <div class="honeypot-field" aria-hidden="true">
-                        <label for="fb-website">Leave this field empty</label>
-                        <input type="text" id="fb-website" name="_honey" tabindex="-1" autocomplete="off">
-                    </div>
-                    <input type="hidden" name="_subject" value="New client feedback — DannyComputer2008">
-                    <input type="hidden" name="_template" value="table">
-
-                    <p id="fb-status" class="text-sm text-center" role="status" aria-live="polite"></p>
-                    <button type="submit" data-i18n="fbSubmitBtn"
-                        class="w-full py-3.5 rounded-full bg-white dark:bg-black hover:bg-black/5 dark:hover:bg-white/10 text-[#1D1D1F] dark:text-[#F5F5F7] border border-black/15 dark:border-white/20 font-semibold text-sm sm:text-base tracking-wide transition-all duration-200 active:scale-[0.99]">
-                        提交我的反馈
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
     <!-- ==================== 2.5 远程协助工具下载 (RustDesk 苹果极简卡片) ==================== -->
     <section id="remote-support" class="max-w-5xl mx-auto px-6 py-10">
         <div class="bento-card fade-up rounded-3xl p-8 sm:p-10 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col lg:flex-row lg:flex-wrap items-start lg:items-center justify-between gap-8">
@@ -473,7 +396,7 @@
                 </div>
 
                 <h3 data-i18n="remoteTitle" class="text-2xl sm:text-3xl font-bold tracking-tight mb-3">
-                    下载 RustDesk，一键开启远程协助
+                    下载 RustDesk，开启远程协助
                 </h3>
                 <p data-i18n="remoteDesc" class="text-sm sm:text-base text-[#6E6E73] dark:text-[#86868B] leading-relaxed">
                     软件故障、系统设置与网络问题，可先通过远程方式排查。下载并运行后，按下方步骤发起连接。
@@ -496,23 +419,24 @@
             <div class="w-full border-t border-black/5 dark:border-white/10 pt-6">
                 <p data-i18n="remoteSecurity" class="text-xs sm:text-sm text-[#6E6E73] dark:text-[#86868B] leading-relaxed mb-4">远程连接仅在您授权后进行。请勿向任何人提供永久访问密码，仅在确认本次服务后分享一次性密码。</p>
                 <ol class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm text-[#1D1D1F]/80 dark:text-[#F5F5F7]/80">
-                    <li class="flex items-center justify-start gap-2"><span class="text-appleBlue font-bold">01</span><span data-i18n="remoteStep1">下载并运行 RustDesk。</span></li>
-                    <li class="flex items-center justify-start sm:justify-center gap-2"><span class="text-appleBlue font-bold">02</span><span data-i18n="remoteStep2">将设备 ID 和一次性密码提供给工程师。</span></li>
-                    <li class="flex items-center justify-start sm:justify-end gap-2"><span class="text-appleBlue font-bold">03</span><span data-i18n="remoteStep3">确认连接请求，开始远程维修。</span></li>
+                    <li class="flex gap-2"><span class="text-appleBlue font-bold">01</span><span data-i18n="remoteStep1">下载并运行 RustDesk。</span></li>
+                    <li class="flex gap-2"><span class="text-appleBlue font-bold">02</span><span data-i18n="remoteStep2">将设备 ID 和一次性密码提供给丹尼。</span></li>
+                    <li class="flex gap-2"><span class="text-appleBlue font-bold">03</span><span data-i18n="remoteStep3">确认连接请求，开始远程维修。</span></li>
                 </ol>
             </div>
         </div>
     </section>
 
     <!-- ==================== 3. 预约上门与快速联系表单（与上方网格同宽对齐） ==================== -->
-    <section id="booking" class="max-w-5xl mx-auto px-6 py-10">
+    <section id="booking" class="max-w-5xl mx-auto px-6 py-20">
         <div class="rounded-3xl p-8 sm:p-12 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 shadow-sm">
             <div class="text-center max-w-xl mx-auto mb-10">
                 <p data-i18n="tagBooking" class="text-xs font-semibold uppercase tracking-[0.2em] text-appleBlue mb-2">Book An Appointment</p>
                 <h2 data-i18n="bookingTitle" class="text-3xl sm:text-4xl font-bold tracking-tight mb-3">预约上门技术支持</h2>
                 <p data-i18n="bookingSub" class="text-sm sm:text-base text-[#6E6E73] dark:text-[#86868B]">
-                    填写以下信息，Danny 将尽快联系您，确认服务范围、预估工时与安排。
+                    填写以下信息，丹尼将尽快联系您，确认服务范围、预估工时与安排。
                 </p>
+                <p data-i18n="bookingReply" class="mt-3 text-xs sm:text-sm font-medium text-appleBlue">通常 24 小时内回复 · 服务时间 周一至周六 9:00–18:00</p>
             </div>
 
             <div class="max-w-3xl mx-auto">
@@ -561,14 +485,14 @@
                                 <option value="consult" data-i18n="optConsult">购买电脑建议 / 专属装机</option>
                                 <option value="network" data-i18n="optNetwork">家庭 / 办公室网络维修调优</option>
                                 <option value="recovery" data-i18n="optRecovery">数据恢复 / 硬盘升级</option>
-                                <option value="web" data-i18n="optWeb">网站 / APP 制作</option>
+                            <option value="web" data-i18n="optWeb">网站 / APP 制作</option>
                             </select>
                         </div>
                         <div>
                             <!-- 城市 -->
                             <label for="client-city" data-i18n="labelCity"
                                 class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] dark:text-[#86868B] mb-2">
-                                所在城市 (洛杉矶地区)
+                                所在城市（洛杉矶地区）
                             </label>
                             <input type="text" id="client-city" name="City" autocomplete="address-level2" data-i18n-placeholder="phCity" placeholder="例如：Monterey Park / Arcadia / Irvine"
                                 class="w-full h-12 px-4 rounded-2xl bg-white dark:bg-black border border-black/10 dark:border-white/15 text-sm focus:outline-none focus:border-appleBlue transition-colors">
@@ -602,7 +526,7 @@
     </section>
 
     <!-- ==================== 页脚：服务时间、回复时间、维修保障、隐私说明、版权 ==================== -->
-    <footer class="max-w-5xl mx-auto px-6 pt-10 pb-12">
+    <footer class="max-w-5xl mx-auto px-6 pb-12">
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div class="flex items-start gap-3">
                 <div class="w-10 h-10 rounded-xl bg-appleBlue/10 text-appleBlue flex items-center justify-center shrink-0">
@@ -635,7 +559,7 @@
         <div id="privacy" class="mt-8 border-t border-black/5 dark:border-white/10 pt-8 flex flex-col sm:flex-row justify-between gap-5 text-xs text-[#6E6E73] dark:text-[#86868B]">
             <div class="max-w-2xl">
                 <h2 data-i18n="privacyTitle" class="font-semibold text-sm text-[#1D1D1F] dark:text-[#F5F5F7] mb-2">隐私说明</h2>
-                <p data-i18n="privacyText" class="leading-relaxed">您提交的姓名、电话、电子邮箱、所在城市及服务需求，仅用于回复咨询、安排服务和提供报价。表单通过 FormSubmit 第三方邮件服务传送至 DannyComputer2008，该服务会暂存提交记录（官方说明为 30 天）。本站使用 Cloudflare Web Analytics 统计访问量，不使用 Cookie，不收集可识别个人的信息。请勿填写密码、支付信息或其他敏感资料。我们不会出售您的联系信息。</p>
+                <p data-i18n="privacyText" class="leading-relaxed">您提交的姓名, 电话, 电子邮箱, 所在城市及服务需求, 仅用于回复咨询、安排服务和提供报价。表单通过 FormSubmit 第三方邮件服务传送至 DannyComputer2008, 该服务会暂存提交记录（官方说明为 30 天）。本站使用 Cloudflare Web Analytics 统计访问量，不使用 Cookie，不收集可识别个人的信息。请勿填写密码、支付信息或其他敏感资料。丹尼不会出售您的联系信息。</p>
             </div>
             <div class="flex flex-col gap-2 sm:text-right shrink-0">
                 <a id="phone-link" href="#" class="hidden text-appleBlue hover:underline" data-i18n="callUs">电话联系</a>
@@ -643,6 +567,7 @@
         </div>
         <div class="mt-8 pt-8 border-t border-black/5 dark:border-white/10 flex flex-col sm:flex-row justify-between gap-2 text-xs text-[#6E6E73] dark:text-[#86868B]">
             <span>© 2008–<span id="footer-year">2026</span> DannyComputer2008</span>
+            <span data-i18n="areaBadge">大洛杉矶上门服务</span>
         </div>
     </footer>
     <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
@@ -668,20 +593,20 @@
                 pageTitle: 'DannyComputer2008 · 洛杉矶专业 IT 技术服务',
                 pageDescription: 'DannyComputer2008 为大洛杉矶家庭与中小企业提供电脑维修、网络维护、企业 IT 基础设施支持及远程技术服务。20+ 年实战经验。',
                 badge: '始于 2008 洛杉矶 · 20+ 年 IT 实战经验',
-                heroTitle1: '让电脑',
+                heroTitle1: '让每一台电脑',
                 heroTitle2: '正常工作',
-                heroSub: '从电脑选购到网络调优，按需解决您的每一项技术难题<br class="hidden sm:inline">透明、高效、可靠，让专业服务更省心',
+                heroSub: '从电脑选购到网络调优，按需解决您的每一项技术难题<br class="hidden sm:inline">透明、高效、可靠，让专业服务省心一步',
                 heroBtn: '预约上门',
                 tagCoreServices: '核心服务',
                 servicesTitle: '专业电脑、网络与企业 IT 服务',
-                servicesSub: '大洛杉矶地区上门 & 远程极速响应',
+                servicesSub: '大洛杉矶地区上门 & 远程响应',
                 card1Title: '硬件维修与故障排查',
-                card1Desc: '精准定位不开机、蓝屏死机、过热降频、硬盘损坏及进水故障。支持 Windows 台式机、笔记本及 Mac 全系硬件升级与更换。',
+                card1Desc: '精准定位不开机、蓝屏死机、过热降频、硬盘损坏及进水故障。Windows 台式机、笔记本及可升级的 Mac，均可提供硬件升级与更换。',
                 card1Item1: '硬盘数据无损迁移与扩容',
-                card1Item2: '深度清灰散热硅脂更换',
+                card1Item2: '深度清灰与散热硅脂更换',
                 card1Item3: '误删文件与故障盘数据恢复',
                 card2Title: '电脑选购与专属装机',
-                card2Desc: '拒绝参数冗余与消费陷阱。根据您的日常办公、跨境电商、剪辑渲染或游戏预算，提供客观选购清单或一对一手工装机调优。',
+                card2Desc: '拒绝参数冗余与消费陷阱。根据您的使用场景和预算（日常办公、跨境电商、剪辑渲染或游戏），提供客观的选购清单，或一对一定制装机。',
                 card2Item1: '品牌机 / Mac 购买避坑指导',
                 card2Item2: '静音办公与高性能主机定制',
                 card2Item3: '新机开箱初始化与软件部署',
@@ -697,25 +622,25 @@
                 card4Item3: 'NAS、文件共享与备份系统',
                 card4Item4: '办公室 IT 设备与故障支持',
                 card5Title: '网站和APP制作',
-                card5Desc: '为个人与中小企业量身制作网站和手机 APP，从设计、开发到上线与后续维护一站完成。',
+                card5Desc: '为个人与中小企业量身制作网站和手机 APP，从设计、开发到上线与后续维护一站式完成。',
                 card5Item1: '企业官网、展示页与预约系统',
                 card5Item2: 'iOS / Android 手机 APP 开发',
                 card5Item3: '域名、托管与上线后维护',
                 tagTransparentPricing: '透明定价',
                 pricingRate: '$80/小时',
                 pricingTitle: '预估工时封顶，修不好不收费',
-                pricingDesc: '服务按 $80/小时计费，维修前先评估并确认预计工时与人工费用。实际人工费用不超过事先确认的预估金额；若无法修复，不收取维修人工费。配件由客户自行购买，也可委托我代购，费用另行确认。无隐形收费。',
+                pricingDesc: '服务按 $80/小时计费，维修前先评估并确认预计工时与人工费用。实际人工费用不超过事先确认的预估金额；若无法修复，不收取维修人工费。配件由客户自行购买，也可委托丹尼代购，费用另行确认。无隐形收费。',
                 stat1Label: '洛杉矶本地创立至今',
                 stat2Num: '20+ 年',
                 stat2Label: 'IT 实战经验',
                 langSupport: '支持普通话 / 英语',
                 areaBadge: '大洛杉矶上门服务',
                 tagRemoteSupport: '远程协助',
-                remoteTitle: '下载 RustDesk，一键开启远程协助',
+                remoteTitle: '下载 RustDesk，开启远程协助',
                 remoteDesc: '软件故障、系统设置与网络问题，可先通过远程方式排查。下载并运行后，按下方步骤发起连接。',
                 remoteSecurity: '远程连接仅在您授权后进行。请勿向任何人提供永久访问密码，仅在确认本次服务后分享一次性密码。',
                 remoteStep1: '下载并运行 RustDesk。',
-                remoteStep2: '将设备 ID 和一次性密码提供给工程师。',
+                remoteStep2: '将设备 ID 和一次性密码提供给丹尼。',
                 remoteStep3: '确认连接请求，开始远程维修。',
                 btnWinDownload: '下载 Windows 版',
                 btnMacDownload: '下载 macOS 版',
@@ -724,7 +649,7 @@
                 mapEyebrow: '服务区域',
                 mapTitle: '覆盖大洛杉矶地区',
                 mapSub: '以洛杉矶市区为中心提供上门服务，具体服务范围预约时确认。',
-                bookingSub: '填写以下信息，Danny 将尽快联系您，确认服务范围、预估工时与安排。',
+                bookingSub: '填写以下信息，丹尼将尽快联系您，确认服务范围、预估工时与安排。',
                 labelName: '您的称呼 *',
                 phName: '例如：张先生 / Ms. Li',
                 labelPhone: '联系电话 *',
@@ -738,32 +663,12 @@
                 optRecovery: '数据恢复 / 硬盘升级',
                 optWeb: '网站 / APP 制作',
                 floatBook: '预约上门服务',
-                labelCity: '所在城市 (洛杉矶地区)',
+                labelCity: '所在城市（洛杉矶地区）',
                 phCity: '例如：Monterey Park / Arcadia / Irvine',
                 labelDesc: '设备型号与问题描述',
                 phDesc: '请简述您的电脑品牌型号、遇到的具体问题或购买/网络需求...',
                 submitBtn: '提交预约请求',
-                tagReviews: '客户反馈',
-                reviewsTitle: '客户真实评价与反馈',
-                reviewsSub: '感谢每一位信任 Danny 的家庭与企业客户',
-                feedbackFormTitle: '留下您的使用体验与建议',
-                feedbackFormSub: '如果您曾使用过我们的服务，欢迎写下真实感受；审核后将展示在页面中。',
-                fbLabelName: '您的称呼 *',
-                fbPhName: '例如：王先生 / Alex',
-                fbLabelCity: '所在城市（选填）',
-                fbPhCity: '例如：Pasadena',
-                fbLabelRating: '服务评分',
-                fbOpt5: '★★★★★ 非常满意',
-                fbOpt4: '★★★★☆ 满意',
-                fbOpt3: '★★★☆☆ 一般',
-                fbLabelContent: '您的评价或建议 *',
-                fbPhContent: '请分享您的服务体验、问题解决情况或对网站的改进建议...',
-                fbSubmitBtn: '提交我的反馈',
-                fbSending: '正在提交反馈…',
-                fbValidation: '请填写您的称呼与评价内容',
-                fbSuccess: '感谢您的反馈！内容已发送给 Danny，审核后将公开展示。',
-                fbError: '反馈提交失败，请稍后重试。',
-                fbPendingBadge: '刚提交 · 审核中',
+                bookingReply: '通常 24 小时内回复 · 服务时间 周一至周六 9:00–18:00',
                 footHoursLabel: '服务时间',
                 footHoursValue: '周一至周六 9:00–18:00',
                 footReplyLabel: '回复时间',
@@ -771,36 +676,36 @@
                 footWarrantyLabel: '维修保障',
                 footWarrantyValue: '维修后 15 天内同一问题免费复查',
                 privacyTitle: '隐私说明',
-                privacyText: '您提交的姓名、电话、电子邮箱、所在城市及服务需求，仅用于回复咨询、安排服务和提供报价。表单通过 FormSubmit 第三方邮件服务传送至 DannyComputer2008，该服务会暂存提交记录（官方说明为 30 天）。本站使用 Cloudflare Web Analytics 统计访问量，不使用 Cookie，不收集可识别个人的信息。请勿填写密码、支付信息或其他敏感资料。我们不会出售您的联系信息。',
+                privacyText: '您提交的姓名、电话、电子邮箱、所在城市及服务需求，仅用于回复咨询、安排服务和提供报价。表单通过 FormSubmit 第三方邮件服务传送至 DannyComputer2008，该服务会暂存提交记录（官方说明为 30 天）。本站使用 Cloudflare Web Analytics 统计访问量，不使用 Cookie，不收集可识别个人的信息。请勿填写密码、支付信息或其他敏感资料。丹尼不会出售您的联系信息。',
                 callUs: '电话联系',
                 ariaSwitchToLight: '切换浅色主题',
                 ariaSwitchToDark: '切换深色主题',
                 ariaSwitchLang: 'Switch to English',
                 sending: '正在提交…',
-                sendSuccess: '提交成功！Danny 将尽快与您联系。',
-                sendError: '提交失败，请稍后重试，或直接发送邮件联系我们。',
+                sendSuccess: '提交成功！丹尼将尽快与您联系。',
+                sendError: '提交失败，请稍后重试。如问题持续，请刷新页面后再试。',
                 toastDefault: '操作成功',
                 toastValidation: '请填写您的称呼与联系电话',
-                toastSubmit: (name) => `感谢 ${name}，您的预约已登记，丹尼工程师将尽快联系您！`
+                toastSubmit: (name) => `感谢 ${name}，您的预约已登记，丹尼将尽快联系您！`
             },
             en: {
                 pageTitle: 'DannyComputer2008 · Professional IT Support in Los Angeles',
                 pageDescription: 'Computer repair, network support, business IT infrastructure, and remote technical services for homes and small businesses across Greater Los Angeles. 20+ years of hands-on experience.',
                 badge: 'Est. 2008 · 20+ Years of Hands-On IT Experience',
-                heroTitle1: 'Make Computers',
+                heroTitle1: 'Make Every Computer',
                 heroTitle2: 'Work Properly',
                 heroSub: 'From smart buying advice to network optimization, tailored solutions for every tech challenge<br class="hidden sm:inline">Transparent, efficient, and reliable service made effortless',
                 heroBtn: 'Book On-Site Service',
                 tagCoreServices: 'Core Services',
                 servicesTitle: 'Professional Computer, Network & Business IT Support',
-                servicesSub: 'Greater Los Angeles On-Site & Rapid Remote Response',
+                servicesSub: 'Greater Los Angeles On-Site & Remote Response',
                 card1Title: 'Hardware Repair & Diagnostics',
-                card1Desc: 'Pinpoint no-boot issues, BSOD crashes, overheating, drive failures, and liquid damage. Full hardware upgrades for Windows PCs, laptops, and Macs.',
+                card1Desc: 'Pinpoint no-boot issues, BSOD crashes, overheating, drive failures, and liquid damage. Hardware upgrades and replacements for Windows desktops, laptops, and upgradeable Macs.',
                 card1Item1: 'Lossless Drive Data Migration & Storage Upgrade',
                 card1Item2: 'Deep Dust Cleaning & Thermal Paste Replacement',
                 card1Item3: 'Deleted File & Failing Drive Data Recovery',
                 card2Title: 'Buying Advice & Custom Builds',
-                card2Desc: 'No overspending on unnecessary specs. Objective buying recommendations or 1-on-1 custom PC builds tailored for office work, e-commerce, editing, or gaming.',
+                card2Desc: 'No overspending on unnecessary specs. Objective buying recommendations or one-on-one custom PC builds, based on your use case and budget (office work, cross-border e-commerce, video editing, or gaming).',
                 card2Item1: 'Unbiased Pre-built PC & Mac Buying Guidance',
                 card2Item2: 'Silent Office & High-Performance Custom Rigs',
                 card2Item3: 'New System Setup & Software Deployment',
@@ -816,25 +721,25 @@
                 card4Item3: 'NAS, File Sharing & Backup Systems',
                 card4Item4: 'Small Office IT & Troubleshooting',
                 card5Title: 'Website & App Development',
-                card5Desc: 'Custom websites and mobile apps for individuals and small businesses—from design and development to launch and ongoing maintenance.',
+                card5Desc: 'Custom websites and mobile apps for individuals and small businesses—design, development, launch, and ongoing maintenance, all in one place.',
                 card5Item1: 'Business Websites, Landing Pages & Booking Systems',
                 card5Item2: 'iOS / Android Mobile App Development',
                 card5Item3: 'Domain, Hosting & Post-Launch Maintenance',
                 tagTransparentPricing: 'Transparent Pricing',
                 pricingRate: '$80/hr',
                 pricingTitle: 'Capped Hourly Estimate, No Fix No Fee',
-                pricingDesc: 'Billed at $80/hr. I assess the issue and confirm the labor estimate before work begins. Labor will not exceed the agreed estimate; if the issue cannot be fixed, no labor fee is charged. You may purchase parts yourself or ask me to source them. Parts are quoted separately. No hidden fees.',
+                pricingDesc: 'Billed at $80/hr. Danny assesses the issue and confirms the labor estimate before work begins. Labor will not exceed the agreed estimate; if the issue cannot be fixed, no labor fee is charged. You may purchase parts yourself or ask Danny to source them. Parts are quoted separately. No hidden fees.',
                 stat1Label: 'Serving Los Angeles Since',
                 stat2Num: '20+ Yrs',
                 stat2Label: 'Hands-On IT Experience',
                 langSupport: 'English & Mandarin Support',
                 areaBadge: 'Greater LA On-Site',
                 tagRemoteSupport: 'Remote Support',
-                remoteTitle: 'Download RustDesk for Instant Remote Support',
+                remoteTitle: 'Download RustDesk to Start Remote Support',
                 remoteDesc: 'Start with a remote assessment for software, system, and network issues. Download and run RustDesk, then follow the steps below to connect.',
                 remoteSecurity: 'Remote access starts only with your permission. Never share a permanent access password; share a one-time password only after confirming the service.',
                 remoteStep1: 'Download and run RustDesk.',
-                remoteStep2: 'Send your device ID and one-time password to the engineer.',
+                remoteStep2: 'Send your device ID and one-time password to Danny.',
                 remoteStep3: 'Approve the connection request to begin support.',
                 btnWinDownload: 'Download for Windows',
                 btnMacDownload: 'Download for macOS',
@@ -843,7 +748,7 @@
                 mapEyebrow: 'Service Area',
                 mapTitle: 'Serving Greater Los Angeles',
                 mapSub: 'On-site service centered on Los Angeles. Exact coverage is confirmed when you book.',
-                bookingSub: 'Tell me what you need and where you are. I’ll follow up to confirm the scope, estimate, and scheduling.',
+                bookingSub: 'Tell Danny what you need and where you are. Danny will follow up to confirm the scope, estimate, and scheduling.',
                 labelName: 'Your Name *',
                 phName: 'e.g., Alex Chen / Ms. Li',
                 labelPhone: 'Phone Number *',
@@ -862,27 +767,7 @@
                 labelDesc: 'Device Model & Issue Description',
                 phDesc: 'Briefly describe your device model, issue, or buying/network needs...',
                 submitBtn: 'Submit Appointment Request',
-                tagReviews: 'Client Feedback',
-                reviewsTitle: 'Client Reviews & Feedback',
-                reviewsSub: 'Thank you to every home and business client who trusts Danny',
-                feedbackFormTitle: 'Share Your Experience or Suggestions',
-                feedbackFormSub: 'Used our service before? Leave your honest feedback below—verified reviews will be featured on the page.',
-                fbLabelName: 'Your Name *',
-                fbPhName: 'e.g., Alex W. / Ms. Wang',
-                fbLabelCity: 'City (Optional)',
-                fbPhCity: 'e.g., Pasadena',
-                fbLabelRating: 'Rating',
-                fbOpt5: '★★★★★ Very Satisfied',
-                fbOpt4: '★★★★☆ Satisfied',
-                fbOpt3: '★★★☆☆ Average',
-                fbLabelContent: 'Your Review or Suggestion *',
-                fbPhContent: 'Share your service experience or suggestions for our website...',
-                fbSubmitBtn: 'Submit Feedback',
-                fbSending: 'Submitting feedback…',
-                fbValidation: 'Please enter your name and feedback content',
-                fbSuccess: 'Thank you for your feedback! It has been sent to Danny for review.',
-                fbError: 'Failed to submit feedback. Please try again later.',
-                fbPendingBadge: 'Just Submitted · Pending Review',
+                bookingReply: 'Typically replies within 24 hours · Mon–Sat, 9:00 AM – 6:00 PM',
                 footHoursLabel: 'Service Hours',
                 footHoursValue: 'Mon–Sat, 9:00 AM – 6:00 PM',
                 footReplyLabel: 'Response Time',
@@ -890,14 +775,14 @@
                 footWarrantyLabel: 'Repair Guarantee',
                 footWarrantyValue: 'Free re-check within 15 days for the same issue',
                 privacyTitle: 'Privacy',
-                privacyText: 'Your name, phone number, email, city, and service details are used only to respond to your inquiry, arrange service, and prepare an estimate. This form is delivered to DannyComputer2008 through the third-party FormSubmit email service, which states that submissions are retained for 30 days. This site uses Cloudflare Web Analytics to measure traffic; it does not use cookies or collect personally identifiable information. Do not submit passwords, payment details, or other sensitive information. Your contact information is not sold.',
+                privacyText: 'Your name, phone number, email, city, and service details are used only to respond to your inquiry, arrange service, and prepare an estimate. This form is delivered to DannyComputer2008 through the third-party FormSubmit email service, which states that submissions are retained for 30 days. This site uses Cloudflare Web Analytics to measure traffic; it does not use cookies or collect personally identifiable information. Do not submit passwords, payment details, or other sensitive information. Danny does not sell your contact information.',
                 callUs: 'Call',
                 ariaSwitchToLight: 'Switch to light theme',
                 ariaSwitchToDark: 'Switch to dark theme',
                 ariaSwitchLang: '切换为中文',
                 sending: 'Submitting…',
                 sendSuccess: 'Request sent. Danny will contact you shortly.',
-                sendError: 'Submission failed. Please try again or email us directly.',
+                sendError: 'Submission failed. Please try again later. If the problem continues, refresh the page and try again.',
                 toastDefault: 'Success',
                 toastValidation: 'Please enter your name and phone number',
                 toastSubmit: (name) => `Thank you, ${name}! Your request is received and Danny will reach out shortly.`
@@ -907,8 +792,6 @@
         let currentLang = 'zh';
         let currentStatusKey = ''; 
         let isSubmittingForm = false;
-        let currentFbStatusKey = '';
-        let isSubmittingFb = false;
 
         function safeStorageGet(key) {
             try {
@@ -948,7 +831,6 @@
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (isSubmittingForm && key === 'submitBtn') return;
-                if (isSubmittingFb && key === 'fbSubmitBtn') return;
                 if (dict[key] !== undefined && typeof dict[key] !== 'function') el.textContent = dict[key];
             });
             document.querySelectorAll('[data-i18n-html]').forEach(el => {
@@ -973,19 +855,9 @@
                 if (submitBtn) submitBtn.textContent = dict.sending;
             }
 
-            if (isSubmittingFb) {
-                const fbBtn = document.querySelector('#feedback-form button[type="submit"]');
-                if (fbBtn) fbBtn.textContent = dict.fbSending;
-            }
-
             const statusEl = document.getElementById('form-status');
             if (statusEl && currentStatusKey && dict[currentStatusKey]) {
                 statusEl.textContent = dict[currentStatusKey];
-            }
-
-            const fbStatusEl = document.getElementById('fb-status');
-            if (fbStatusEl && currentFbStatusKey && dict[currentFbStatusKey]) {
-                fbStatusEl.textContent = dict[currentFbStatusKey];
             }
         }
 
@@ -1157,114 +1029,6 @@
                     submitButton.disabled = false;
                     submitButton.classList.remove('opacity-60', 'cursor-not-allowed');
                     submitButton.textContent = i18nDict[currentLang].submitBtn;
-                }
-            });
-        }
-
-        // 用户反馈表单提交逻辑（发送至业务邮箱供审核，并在本地列表即时追加预览卡片）
-        const feedbackForm = document.getElementById('feedback-form');
-        if (feedbackForm) {
-            feedbackForm.addEventListener('submit', async function (e) {
-                e.preventDefault();
-                const dict = i18nDict[currentLang];
-                const name = document.getElementById('fb-name').value.trim();
-                const city = document.getElementById('fb-city').value.trim();
-                const rating = document.getElementById('fb-rating').value;
-                const content = document.getElementById('fb-content').value.trim();
-                const status = document.getElementById('fb-status');
-                const submitButton = feedbackForm.querySelector('button[type="submit"]');
-
-                if (!name || !content) {
-                    currentFbStatusKey = 'fbValidation';
-                    status.textContent = dict.fbValidation;
-                    status.className = 'text-sm text-center text-red-600 dark:text-red-400';
-                    return;
-                }
-                if (document.getElementById('fb-website').value.trim()) return;
-
-                isSubmittingFb = true;
-                currentFbStatusKey = '';
-                submitButton.disabled = true;
-                submitButton.classList.add('opacity-60', 'cursor-not-allowed');
-                submitButton.textContent = dict.fbSending;
-                status.textContent = '';
-
-                try {
-                    const formData = new FormData(feedbackForm);
-                    const payload = Object.fromEntries(formData.entries());
-                    const response = await fetch('https://formsubmit.co/ajax/DANNYCOMPUTER2008@GMAIL.COM', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    const result = await response.json();
-                    const ok = response.ok && (result.success === true || result.success === 'true');
-                    if (!ok) throw new Error(result.message || 'Feedback delivery rejected');
-
-                    // 在当前访客页面即时生成一张“审核中”反馈卡片（使用 textContent 防 XSS）
-                    const reviewsList = document.getElementById('reviews-list');
-                    if (reviewsList) {
-                        reviewsList.classList.remove('hidden');
-                        const card = document.createElement('div');
-                        card.className = 'bento-card rounded-2xl p-6 bg-white dark:bg-black border border-black/5 dark:border-white/10 flex flex-col justify-between';
-
-                        const topWrap = document.createElement('div');
-                        const headerRow = document.createElement('div');
-                        headerRow.className = 'flex items-center justify-between gap-2 mb-3';
-
-                        const starsSpan = document.createElement('span');
-                        starsSpan.className = 'text-sm font-bold text-appleBlue tracking-wider';
-                        starsSpan.textContent = rating;
-
-                        const badgeSpan = document.createElement('span');
-                        badgeSpan.className = 'text-xs px-2.5 py-1 rounded-full bg-appleBlue/10 text-appleBlue font-medium';
-                        badgeSpan.setAttribute('data-i18n', 'fbPendingBadge');
-                        badgeSpan.textContent = i18nDict[currentLang].fbPendingBadge;
-
-                        headerRow.appendChild(starsSpan);
-                        headerRow.appendChild(badgeSpan);
-
-                        const bodyP = document.createElement('p');
-                        bodyP.className = 'text-sm text-[#1D1D1F]/85 dark:text-[#F5F5F7]/85 leading-relaxed mb-5';
-                        bodyP.textContent = `“${content}”`;
-
-                        topWrap.appendChild(headerRow);
-                        topWrap.appendChild(bodyP);
-
-                        const footerRow = document.createElement('div');
-                        footerRow.className = 'flex items-center justify-between text-xs text-[#6E6E73] dark:text-[#86868B] border-t border-black/5 dark:border-white/10 pt-4';
-
-                        const authorSpan = document.createElement('span');
-                        authorSpan.className = 'font-semibold text-[#1D1D1F] dark:text-[#F5F5F7]';
-                        authorSpan.textContent = name;
-
-                        const citySpan = document.createElement('span');
-                        citySpan.textContent = city || 'Greater LA';
-
-                        footerRow.appendChild(authorSpan);
-                        footerRow.appendChild(citySpan);
-
-                        card.appendChild(topWrap);
-                        card.appendChild(footerRow);
-                        reviewsList.appendChild(card);
-                    }
-
-                    feedbackForm.reset();
-                    currentFbStatusKey = 'fbSuccess';
-                    status.textContent = i18nDict[currentLang].fbSuccess;
-                    status.className = 'text-sm text-center text-green-700 dark:text-green-400';
-                    showToast(i18nDict[currentLang].fbSuccess);
-                } catch (error) {
-                    currentFbStatusKey = 'fbError';
-                    status.textContent = i18nDict[currentLang].fbError;
-                    status.className = 'text-sm text-center text-red-600 dark:text-red-400';
-                    showToast(i18nDict[currentLang].fbError);
-                    console.error('Feedback submission failed:', error);
-                } finally {
-                    isSubmittingFb = false;
-                    submitButton.disabled = false;
-                    submitButton.classList.remove('opacity-60', 'cursor-not-allowed');
-                    submitButton.textContent = i18nDict[currentLang].fbSubmitBtn;
                 }
             });
         }
