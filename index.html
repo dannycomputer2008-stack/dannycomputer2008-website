@@ -135,20 +135,8 @@
         .bento-card {
             transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
-        /* 模块悬停“跳动一下”：鼠标移入时弹起并回落一次（仅支持悬停的设备；系统开启“减少动态效果”时自动关闭） */
-        @keyframes hop {
-            0%   { transform: translateY(0); }
-            30%  { transform: translateY(var(--hop, -8px)); }
-            55%  { transform: translateY(0); }
-            75%  { transform: translateY(calc(var(--hop, -8px) * 0.35)); }
-            100% { transform: translateY(0); }
-        }
-        /* 英文标题均衡换行，避免末行只剩一两个单词（中文标题不启用，以免在词语中间断开） */
-        html[lang="en"] :is(h2, h3, h4) { text-wrap: balance; }
-        .hop-lg { --hop: -5px; }
-        .hop-sm { --hop: -4px; }
-        @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-            .hop:hover { animation: hop 0.55s cubic-bezier(0.28, 0.84, 0.42, 1); }
+        .bento-card:hover {
+            transform: translateY(-4px);
         }
         /* 渐入动画采用渐进增强：默认内容可见，JS 正常运行时才启用隐藏态 */
         .js-motion .fade-up {
@@ -237,9 +225,9 @@
     </section>
 
     <!-- ==================== 2. 核心服务矩阵 (统一 max-w-5xl 与全站左右严格对齐) ==================== -->
-    <section id="services" class="max-w-5xl mx-auto px-6 pt-24 pb-5 md:pb-7">
+    <section id="services" class="max-w-5xl mx-auto px-6 py-20">
         <!-- 标题栏：统一与下方网格左边缘严格对齐 -->
-        <div class="mb-14 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-black/5 dark:border-white/10 pb-6">
+        <div class="mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-black/5 dark:border-white/10 pb-6">
             <div>
                 <p data-i18n="tagCoreServices" class="text-xs font-semibold uppercase tracking-[0.2em] text-appleBlue mb-2">Core Services</p>
                 <h2 data-i18n="servicesTitle" class="text-3xl sm:text-4xl font-bold tracking-tight">专业电脑、网络与企业 IT 服务</h2>
@@ -250,9 +238,9 @@
         </div>
 
         <!-- 五项核心服务（前四项 2x2，第五项横跨两列） 对齐网格（桌面端两两并排，卡片宽敞工整，与上下所有板块左右严格对齐） -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-stretch">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
             <!-- 卡片 1：电脑维修与系统救援 -->
-            <div class="bento-card hop fade-up rounded-3xl p-8 sm:p-10 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between h-full">
+            <div class="bento-card fade-up rounded-3xl p-8 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between h-full">
                 <div>
                     <div class="w-12 h-12 rounded-2xl bg-appleBlue/10 text-appleBlue flex items-center justify-center mb-6">
                         <i data-lucide="cpu" class="w-6 h-6"></i>
@@ -270,7 +258,7 @@
             </div>
 
             <!-- 卡片 2：选购咨询与按需定制 -->
-            <div class="bento-card hop fade-up rounded-3xl p-8 sm:p-10 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between h-full">
+            <div class="bento-card fade-up rounded-3xl p-8 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between h-full">
                 <div>
                     <div class="w-12 h-12 rounded-2xl bg-appleBlue/10 text-appleBlue flex items-center justify-center mb-6">
                         <i data-lucide="sliders" class="w-6 h-6"></i>
@@ -288,7 +276,7 @@
             </div>
 
             <!-- 卡片 3：家庭与小型办公室网络调优 -->
-            <div class="bento-card hop fade-up rounded-3xl p-8 sm:p-10 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between h-full">
+            <div class="bento-card fade-up rounded-3xl p-8 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between h-full">
                 <div>
                     <div class="w-12 h-12 rounded-2xl bg-appleBlue/10 text-appleBlue flex items-center justify-center mb-6">
                         <i data-lucide="wifi" class="w-6 h-6"></i>
@@ -306,7 +294,7 @@
             </div>
 
             <!-- 卡片 4：企业 IT 基础设施与运维 -->
-            <div class="bento-card hop fade-up rounded-3xl p-8 sm:p-10 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between h-full">
+            <div class="bento-card fade-up rounded-3xl p-8 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between h-full">
                 <div>
                     <div class="w-12 h-12 rounded-2xl bg-appleBlue/10 text-appleBlue flex items-center justify-center mb-6">
                         <i data-lucide="server" class="w-6 h-6"></i>
@@ -323,7 +311,7 @@
             </div>
 
             <!-- 卡片 5：网站和APP制作（桌面端横跨两列） -->
-            <div class="bento-card hop fade-up md:col-span-2 rounded-3xl p-8 sm:p-10 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between h-full md:flex-row md:items-center md:justify-between md:gap-12">
+            <div class="bento-card fade-up md:col-span-2 rounded-3xl p-8 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between h-full md:flex-row md:items-center md:justify-between md:gap-12">
                 <div class="md:flex-1">
                     <div class="w-12 h-12 rounded-2xl bg-appleBlue/10 text-appleBlue flex items-center justify-center mb-6">
                         <i data-lucide="code" class="w-6 h-6"></i>
@@ -340,21 +328,21 @@
         </div>
 
         <!-- 底部 Bento 信任指标卡片（1:1 等宽，统一视觉重量） -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 mt-10 md:mt-14 items-stretch">
-            <div class="bento-card hop fade-up md:col-span-6 rounded-3xl p-8 sm:p-10 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mt-6 items-stretch">
+            <div class="bento-card fade-up md:col-span-6 rounded-3xl p-8 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between">
                 <div>
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <span data-i18n="tagTransparentPricing" class="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-appleBlue">Transparent Pricing</span>
                         <span data-i18n="pricingRate" class="inline-flex items-center px-3 py-1 rounded-full bg-appleBlue/10 text-appleBlue text-xs sm:text-sm font-bold tracking-tight">$80/小时</span>
                     </div>
-                    <h4 data-i18n-html="pricingTitle" class="text-2xl sm:text-3xl font-bold mb-3 tracking-tight">预估工时封顶，<span style="display:inline-block">修不好不收费</span></h4>
+                    <h4 data-i18n="pricingTitle" class="text-2xl sm:text-3xl font-bold mb-3 tracking-tight">预估工时封顶，修不好不收费</h4>
                 </div>
                 <p data-i18n="pricingDesc" class="text-sm sm:text-base text-[#6E6E73] dark:text-[#86868B] leading-relaxed">
                     服务按 $80/小时计费，维修前先评估并确认预计工时与人工费用。实际人工费用不超过事先确认的预估金额；若无法修复，不收取维修人工费。配件由客户自行购买，也可委托丹尼代购，费用另行确认。无隐形收费。
                 </p>
             </div>
 
-            <div class="bento-card hop fade-up md:col-span-6 rounded-3xl p-8 sm:p-10 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between">
+            <div class="bento-card fade-up md:col-span-6 rounded-3xl p-8 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col justify-between">
                 <div class="grid grid-cols-2 gap-6">
                     <div>
                         <div class="text-3xl sm:text-4xl font-extrabold text-appleBlue mb-1 tracking-tight">2008</div>
@@ -374,14 +362,14 @@
     </section>
 
     <!-- ==================== 2.8 服务区域地图 ==================== -->
-    <section id="service-area" class="max-w-5xl mx-auto px-6 py-5 md:py-7">
-        <div class="hop hop-lg fade-up rounded-3xl overflow-hidden bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 shadow-sm">
-            <div class="text-center max-w-xl mx-auto px-6 pt-12 pb-10 sm:pt-14">
+    <section id="service-area" class="max-w-5xl mx-auto px-6 py-10">
+        <div class="fade-up rounded-3xl overflow-hidden bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 shadow-sm">
+            <div class="text-center max-w-xl mx-auto px-6 pt-10 pb-8 sm:pt-12">
                 <p data-i18n="mapEyebrow" class="text-xs font-semibold uppercase tracking-[0.2em] text-appleBlue mb-2">服务区域</p>
                 <h2 data-i18n="mapTitle" class="text-3xl sm:text-4xl font-bold tracking-tight mb-3">覆盖大洛杉矶地区</h2>
                 <p data-i18n="mapSub" class="text-sm sm:text-base text-[#6E6E73] dark:text-[#86868B]">以洛杉矶市区为中心提供上门服务，具体服务范围预约时确认。</p>
             </div>
-            <div class="px-5 pb-5 sm:px-8 sm:pb-8">
+            <div class="px-4 pb-4 sm:px-6 sm:pb-6">
                 <iframe
                     title="Los Angeles service area map"
                     src="https://www.google.com/maps?q=Downtown+Los+Angeles,+CA&z=10&output=embed"
@@ -395,8 +383,8 @@
     </section>
 
     <!-- ==================== 2.5 远程协助工具下载 (RustDesk 苹果极简卡片) ==================== -->
-    <section id="remote-support" class="max-w-5xl mx-auto px-6 py-5 md:py-7">
-        <div class="bento-card hop hop-lg fade-up rounded-3xl p-8 sm:p-10 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col lg:flex-row lg:flex-wrap items-start lg:items-center justify-between gap-8">
+    <section id="remote-support" class="max-w-5xl mx-auto px-6 py-10">
+        <div class="bento-card fade-up rounded-3xl p-8 sm:p-10 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 flex flex-col lg:flex-row lg:flex-wrap items-start lg:items-center justify-between gap-8">
             <!-- 左侧：RustDesk 品牌图标与说明 -->
             <div class="max-w-xl">
                 <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white dark:bg-black border border-black/5 dark:border-white/10 mb-5 shadow-sm">
@@ -442,19 +430,20 @@
     </section>
 
     <!-- ==================== 3. 预约上门与快速联系表单（与上方网格同宽对齐） ==================== -->
-    <section id="booking" class="max-w-5xl mx-auto px-6 py-5 md:py-7">
-        <div class="hop hop-lg rounded-3xl p-8 sm:p-14 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 shadow-sm">
-            <div class="text-center max-w-xl mx-auto mb-12">
+    <section id="booking" class="max-w-5xl mx-auto px-6 py-20">
+        <div class="rounded-3xl p-8 sm:p-12 bg-[#F5F5F7] dark:bg-[#161617] border border-black/5 dark:border-white/10 shadow-sm">
+            <div class="text-center max-w-xl mx-auto mb-10">
                 <p data-i18n="tagBooking" class="text-xs font-semibold uppercase tracking-[0.2em] text-appleBlue mb-2">Book An Appointment</p>
                 <h2 data-i18n="bookingTitle" class="text-3xl sm:text-4xl font-bold tracking-tight mb-3">预约上门技术支持</h2>
                 <p data-i18n="bookingSub" class="text-sm sm:text-base text-[#6E6E73] dark:text-[#86868B]">
                     填写以下信息，丹尼将尽快联系您，确认服务范围、预估工时与安排。
                 </p>
+                <p data-i18n="bookingReply" class="mt-3 text-xs sm:text-sm font-medium text-appleBlue">通常 24 小时内回复 · 服务时间 周一至周六 9:00–18:00</p>
             </div>
 
             <div class="max-w-3xl mx-auto">
                 <!-- 预约提交表单 -->
-                <form id="booking-form" class="space-y-6">
+                <form id="booking-form" class="space-y-5">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>
                             <!-- 姓名 -->
@@ -539,9 +528,9 @@
     </section>
 
     <!-- ==================== 页脚：服务时间、回复时间、维修保障、隐私说明、版权 ==================== -->
-    <footer class="max-w-5xl mx-auto px-6 pt-5 md:pt-7 pb-16">
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            <div class="hop hop-sm flex items-start gap-3">
+    <footer class="max-w-5xl mx-auto px-6 pb-12">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="flex items-start gap-3">
                 <div class="w-10 h-10 rounded-xl bg-appleBlue/10 text-appleBlue flex items-center justify-center shrink-0">
                     <i data-lucide="clock" class="w-5 h-5"></i>
                 </div>
@@ -550,7 +539,7 @@
                     <div data-i18n="footHoursValue" class="text-sm font-semibold text-[#1D1D1F] dark:text-[#F5F5F7]">周一至周六 9:00–18:00</div>
                 </div>
             </div>
-            <div class="hop hop-sm flex items-start gap-3">
+            <div class="flex items-start gap-3">
                 <div class="w-10 h-10 rounded-xl bg-appleBlue/10 text-appleBlue flex items-center justify-center shrink-0">
                     <i data-lucide="message-circle" class="w-5 h-5"></i>
                 </div>
@@ -559,7 +548,7 @@
                     <div data-i18n="footReplyValue" class="text-sm font-semibold text-[#1D1D1F] dark:text-[#F5F5F7]">通常 24 小时内回复</div>
                 </div>
             </div>
-            <div class="hop hop-sm flex items-start gap-3">
+            <div class="flex items-start gap-3">
                 <div class="w-10 h-10 rounded-xl bg-appleBlue/10 text-appleBlue flex items-center justify-center shrink-0">
                     <i data-lucide="shield-check" class="w-5 h-5"></i>
                 </div>
@@ -569,7 +558,7 @@
                 </div>
             </div>
         </div>
-        <div id="privacy" class="mt-10 border-t border-black/5 dark:border-white/10 pt-10 flex flex-col sm:flex-row justify-between gap-5 text-xs text-[#6E6E73] dark:text-[#86868B]">
+        <div id="privacy" class="mt-8 border-t border-black/5 dark:border-white/10 pt-8 flex flex-col sm:flex-row justify-between gap-5 text-xs text-[#6E6E73] dark:text-[#86868B]">
             <div class="max-w-2xl">
                 <h2 data-i18n="privacyTitle" class="font-semibold text-sm text-[#1D1D1F] dark:text-[#F5F5F7] mb-2">隐私说明</h2>
                 <p data-i18n="privacyText" class="leading-relaxed">您提交的姓名, 电话, 电子邮箱, 所在城市及服务需求, 仅用于回复咨询、安排服务和提供报价。表单通过 FormSubmit 第三方邮件服务传送至 DannyComputer2008, 该服务会暂存提交记录（官方说明为 30 天）。本站使用 Cloudflare Web Analytics 统计访问量，不使用 Cookie，不收集可识别个人的信息。请勿填写密码、支付信息或其他敏感资料。丹尼不会出售您的联系信息。</p>
@@ -578,7 +567,7 @@
                 <a id="phone-link" href="#" class="hidden text-appleBlue hover:underline" data-i18n="callUs">电话联系</a>
             </div>
         </div>
-        <div class="mt-10 pt-10 border-t border-black/5 dark:border-white/10 flex flex-col sm:flex-row justify-between gap-2 text-xs text-[#6E6E73] dark:text-[#86868B]">
+        <div class="mt-8 pt-8 border-t border-black/5 dark:border-white/10 flex flex-col sm:flex-row justify-between gap-2 text-xs text-[#6E6E73] dark:text-[#86868B]">
             <span>© 2008–<span id="footer-year">2026</span> DannyComputer2008</span>
         </div>
     </footer>
@@ -640,7 +629,7 @@
                 card5Item3: '域名、托管与上线后维护',
                 tagTransparentPricing: '透明定价',
                 pricingRate: '$80/小时',
-                pricingTitle: '预估工时封顶，<span style="display:inline-block">修不好不收费</span>',
+                pricingTitle: '预估工时封顶，修不好不收费',
                 pricingDesc: '服务按 $80/小时计费，维修前先评估并确认预计工时与人工费用。实际人工费用不超过事先确认的预估金额；若无法修复，不收取维修人工费。配件由客户自行购买，也可委托丹尼代购，费用另行确认。无隐形收费。',
                 stat1Label: '洛杉矶本地创立至今',
                 stat2Num: '20+ 年',
@@ -680,6 +669,7 @@
                 labelDesc: '设备型号与问题描述',
                 phDesc: '请简述您的电脑品牌型号、遇到的具体问题或购买/网络需求...',
                 submitBtn: '提交预约请求',
+                bookingReply: '通常 24 小时内回复 · 服务时间 周一至周六 9:00–18:00',
                 footHoursLabel: '服务时间',
                 footHoursValue: '周一至周六 9:00–18:00',
                 footReplyLabel: '回复时间',
@@ -778,6 +768,7 @@
                 labelDesc: 'Device Model & Issue Description',
                 phDesc: 'Briefly describe your device model, issue, or buying/network needs...',
                 submitBtn: 'Submit Appointment Request',
+                bookingReply: 'Typically replies within 24 hours · Mon–Sat, 9:00 AM – 6:00 PM',
                 footHoursLabel: 'Service Hours',
                 footHoursValue: 'Mon–Sat, 9:00 AM – 6:00 PM',
                 footReplyLabel: 'Response Time',
